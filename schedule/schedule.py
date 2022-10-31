@@ -6,6 +6,7 @@ import sys
 
 
 def main():
+    #adding make schedule at the top to skip the input parts. added redundant versions of input in the function just to test faster.
     make_schedule()
     print("Welcome to the musical lesson schedule builder. To start, please enter a starting date.")
     start_date = get_date()
@@ -29,16 +30,16 @@ def main():
 
 
 def make_schedule():
-    current_date = get_date()
-    end_date = current_date + timedelta(days=30)
-    print(end_date)
-    day_cycle = 1
+    current_date = get_date() #This would go first at the top of main, testing purposes
+    end_date = current_date + timedelta(days=30) #sets end date 30 days after user inputted date
+    print(end_date) #testing only
+    day_cycle = 1 #testing only
     grps = 'ABCDEFGHIJKLMAOPQRST'
     day1_periods = [2, 6, 8, 9]
     day2_periods = [2, 3, 8, 9]
     schedule = {
         # date: {'period': period, 'group': group}
-
+    
     }
     while end_date != current_date:
         date = current_date
