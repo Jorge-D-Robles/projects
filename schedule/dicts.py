@@ -42,7 +42,7 @@ while end_date != current_date:
     schedule.append(temp)
     current_date += timedelta(days=1)
     day_cycle += 1
-    
+
 
 print(tabulate(schedule, headers="keys",tablefmt="grid"))
 
@@ -52,3 +52,5 @@ with open('test.csv', 'w') as file:
     for entry in schedule:
         writer.writerow(entry.values())
 print('Done.')
+
+    
