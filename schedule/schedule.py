@@ -78,7 +78,7 @@ def get_date():
 
 
 def agree():
-    check = input("Are these days off correct? y/n: ").strip().lower()
+    check = input("Are these days correct? y/n: ").strip().lower()
     if "y" not in check:
         sys.exit("Quitting. Please re-run the program to try again.")
     print("")
