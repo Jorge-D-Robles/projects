@@ -5,15 +5,13 @@ def main():
     group_d = ['M', 'N', 'O', 'P']
     group_e = ['Q', 'R', 'S', 'T']
     print(group_a)
-    for i in range (4):
+    for i in range(4):
         rotate_group(group_a)
         print(group_a)
+    print(group_a)
 
 
-
-
-
-#push the last item in the list to the front for group_a, permanently modifying the list
+#push the last item in the list to the front for group_a
 
 def rotate_group(group):
     group.insert(0, group.pop())
