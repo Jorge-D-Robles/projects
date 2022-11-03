@@ -36,9 +36,9 @@ def rotate_group(group):
     return group
 
 
-def randomize_group(group):
-    random.shuffle(group)
-    return group
+# def randomize_group(group):
+#     random.shuffle(group)
+#     return group
 
 
 def find_group(all_groups):
@@ -49,7 +49,7 @@ def find_group(all_groups):
 
     group_randomizer += 1
     if group_randomizer == 21:
-        randomize_group(all_groups)
+        rotate_group(all_groups) #rotates the 5 subgroups of 4 after each letter has gone through
         group_randomizer = 0
 
     if total_changes < 19: #to keep groups un-randomized the first loop of 20 groups. base case
