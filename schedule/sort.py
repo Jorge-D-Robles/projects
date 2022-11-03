@@ -18,14 +18,20 @@ all_groups = [['A', 'B', 'C', 'D'],
 def main():
     #this entire block of code is for testing purposes to see what the output is
     print(all_groups[group_index])
+    print(tabulate(all_groups))
+    print("Before")
     for i in range(20):
         print(find_group(all_groups), end='')
     print("")
     print(tabulate(all_groups))
+    print("After")
     for i in range(16):
+        print("Before")
+        print(tabulate(all_groups))
         for i in range(20):
             print(find_group(all_groups), end='') #printing the entire 20 group loop in one line
         print(all_groups[group_index]) #to see what the first line is 
+        print("After")
         print(tabulate(all_groups)) #for testing purposes, to read table
         print("")
 
