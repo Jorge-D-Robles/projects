@@ -49,13 +49,14 @@ def find_group(all_groups):
 
     group_randomizer += 1
     if group_randomizer == 20:
-        randomize_group(all_groups) #rotates the 5 subgroups of 4 after each letter has gone through
+        rotate_group(all_groups) #rotates the 5 subgroups of 4 after each letter has gone through
+        rotate_group(all_groups)
         group_randomizer = 0
 
-    if total_changes < 20: #to keep groups un-randomized the first loop of 20 groups. base case
+    if total_changes < 21: #to keep groups un-randomized the first loop of 20 groups. base case
         rotated = all_groups[group_index][group_change]
 
-    if group_change == 0 and total_changes >= 20: #begin rotating the letters in the subgroups. ABCD -> DABC -> CDAB -> BCDA -> ABCD
+    if group_change == 0 and total_changes >= 21: #begin rotating the letters in the subgroups. ABCD -> DABC -> CDAB -> BCDA -> ABCD
         # all_groups = rotate_group(all_groups[group_index])
         all_groups[group_index] = rotate_group(all_groups[group_index])
         rotated = all_groups[group_index]
@@ -77,3 +78,5 @@ def find_group(all_groups):
 
 if __name__ == '__main__':
     main()
+
+#FIX SORT.PY - THE LAST LETTER IS NOT BEING ROTATED CORRECTLY OUT OF 20!!
