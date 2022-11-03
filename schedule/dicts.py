@@ -87,7 +87,7 @@ def find_group(all_groups):
 
     group_randomizer += 1
     if group_randomizer == 21:
-        randomize_group(all_groups)
+        randomize_group(all_groups) #also could possibly just rotate all groups instead of randomizing
         group_randomizer = 0
 
     if total_changes < 19:  # to keep groups un-randomized the first loop of 20 groups. base case
