@@ -7,7 +7,6 @@ import random
 
 def main():
     global custom
-    # adding make schedule at the top to skip the input parts. added redundant versions of input in the function just to test faster.
     print("Welcome to the musical lesson schedule builder. To start, please enter a starting date.")
     while True:
         start_date = get_date()
