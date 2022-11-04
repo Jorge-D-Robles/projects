@@ -154,7 +154,7 @@ day2_periods = ['Period 2', 'Period 3', 'Period 8', 'Period 9']
 def custom_start(all_groups):
     while True:
         temp_group = []
-        print("You have chosen to start with a custom group order. Please enter the previous group order in terms of days 1-5. Please separate each group with an empty space.")
+        print("You have chosen to start with a custom group order. Please enter the previous group order in terms of days 1-5 with four groups per day. Please separate each group with an empty space.")
         group1 = input("Day 1 out of 5: ").strip().split(" ")
         temp_group.append(group1)
         group2 = input("Day 2 out of 5: ").strip().split(" ")
