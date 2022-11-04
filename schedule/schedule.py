@@ -123,7 +123,7 @@ def make_schedule(current_date, day_cycle, days_off, weeks):
 
     print(tabulate(schedule, headers="keys", tablefmt="grid"))
 
-    with open('test.csv', 'w') as file:
+    with open('schedule.csv', 'w') as file:
         writer = csv.writer(file)
         writer.writerow(['Date', 'Period 2', 'Group 1', 'Period 3/6',
                         'Group 2', 'Period 8', 'Group 3', 'Period 9', 'Group 4'])
