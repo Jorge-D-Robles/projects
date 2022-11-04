@@ -155,7 +155,7 @@ def find_group(all_groups):
         randomize_group(all_groups) #rotates the 5 subgroups of 4 after each letter has gone through
         group_randomizer = 0
 
-    if total_changes < 20: #to keep groups un-randomized the first loop of 20 groups. base case
+    if total_changes < 19: #to keep groups un-randomized the first loop of 20 groups. base case
         rotated = all_groups[group_index][group_change]
 
     if group_change == 0 and total_changes >= 20: #begin rotating the letters in the subgroups. ABCD -> DABC -> CDAB -> BCDA -> ABCD
