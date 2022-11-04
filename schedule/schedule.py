@@ -13,9 +13,10 @@ def main():
         start_date = get_date()
         print(f"Your start date is {start_date}.")
         if agree():
-            pass
+            break
         else:
             continue
+    while True:
         try:
             day_cycle = int(
                 input(f"Is {start_date} a day 1 or day 2? Type 1 or 2 only: ").strip())
@@ -24,17 +25,13 @@ def main():
                 print(f"Your start date is {start_date} and it is a day {day_cycle}.")
                 if agree():
                     break
-                
             else:
                 print("Invalid input. Try again.")
                 continue
         except ValueError:
             print("Invalid input. Try again.")
             continue
-           
-        
-    
-        
+               
     while True:
         try:    
             print("Next, you may add any potential days off within the next sixty days.")
@@ -156,36 +153,43 @@ day2_periods = ['Period 2', 'Period 3', 'Period 8', 'Period 9']
 
 def custom_start(all_groups):
     while True:
+        temp_group = []
         print("You have chosen to start with a custom group order. Please enter the previous group order in terms of days 1-5. Please separate each group with an empty space.")
         group1 = input("Day 1 out of 5: ").strip().split(" ")
-        all_groups.append(group1)
+        temp_group.append(group1)
         group2 = input("Day 2 out of 5: ").strip().split(" ")
-        all_groups.append(group2)
+        temp_group.append(group2)
         group3 = input("Day 3 out of 5: ").strip().split(" ")
-        all_groups.append(group3)
+        temp_group.append(group3)
         group4 = input("Day 4 out of 5: ").strip().split(" ")
-        all_groups.append(group4)
+        temp_group.append(group4)
         group5 = input("Day 5 out of 5: ").strip().split(" ")
-        all_groups.append(group5)
+        temp_group.append(group5)
         print("Your custom group order is: ")
-        print(tabulate(all_groups))
+        print(tabulate(temp_group))
         check = input("Are these groups correct? y/n: ").strip().lower()
         if "y" not in check:
+            temp_group = []
             continue
         else:
             # check if group1 index[3] is valid
             try:
-                test1 = all_groups[0][3]
-                test2 = all_groups[1][3]
-                test3 = all_groups[2][3]
-                test4 = all_groups[3][3]
-                test5 = all_groups[4][3]
+                for i in range(4):
+                    temp = temp_group[i][3]
+                    
+                
+                
             except IndexError:
                 print("Invalid group order. Please try again.")
+                temp_group = []
                 continue
             else:
-                break
-    return all_groups
+                all_groups.append(group1)
+                all_groups.append(group2)
+                all_groups.append(group3)
+                all_groups.append(group4)
+                all_groups.append(group5)
+                return all_groups
 
 
 def regular_start(all_groups):
@@ -203,7 +207,7 @@ def make_schedule(current_date, day_cycle, days_off, weeks):
         end_date = end_date + timedelta(days=7)
         weeks -= 1  # subtracts a week from the total number of weeks
 
-    print(f"Your end date is: {end_date} and it is a day {day_cycle}.")
+    print(f"Your end date is: {end_date}.")
 
     while end_date != current_date:
 
