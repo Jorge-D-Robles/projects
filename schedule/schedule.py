@@ -30,38 +30,6 @@ def main():
 
 
 def make_schedule():
-    # current_date = get_date() #This would go first at the top of main, testing purposes
-    # end_date = current_date + timedelta(days=30) #sets end date 30 days after user inputted date
-    # print(end_date) #testing only
-    # day_cycle = 1 #testing only
-    # grps = 'ABCDEFGHIJKLMAOPQRST'
-    # day1_periods = [2, 6, 8, 9]
-    # day2_periods = [2, 3, 8, 9]
-    # schedule = {
-    #     # date: {'period': period, 'group': group}
-    
-    # }
-    # while end_date != current_date:
-    #     date = current_date
-    #     print(date)
-    #     date = {}
-    #     if day_cycle == 1:
-    #         for period in day1_periods:
-    #             for group in grps:
-    #                 print(period)
-    #                 date["period"] = day1_periods[period]
-    #                 date["group"] = group
-    #                 break
-    #             break
-    #         print(date)
-    #     elif day_cycle == 2:
-    #         for periods in day2_periods:
-    #             ...
-    #     schedule[date] = date
-    #     current_date = current_date + timedelta(days=1)
-
-    # print(schedule)
-    # return schedule
     ...
 
 def get_date():

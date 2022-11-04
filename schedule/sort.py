@@ -25,7 +25,7 @@ def main():
     print("")
     print(tabulate(all_groups))
     print("After")
-    for i in range(16):
+    for i in range(4):
         print("Before")
         print(tabulate(all_groups))
         for i in range(20):
@@ -54,7 +54,7 @@ def find_group(all_groups):
     global total_changes
 
     group_randomizer += 1
-    if group_randomizer == 20:
+    if group_randomizer == 21:
         rotate_group(all_groups) #rotates the 5 subgroups of 4 after each letter has gone through
         rotate_group(all_groups)
         group_randomizer = 0

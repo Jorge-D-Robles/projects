@@ -86,7 +86,7 @@ def find_group(all_groups):
     global total_changes
 
     group_randomizer += 1
-    if group_randomizer == 20:
+    if group_randomizer == 21:
         randomize_group(all_groups) #rotates the 5 subgroups of 4 after each letter has gone through
         group_randomizer = 0
 
