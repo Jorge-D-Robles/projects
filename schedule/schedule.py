@@ -22,7 +22,8 @@ def main():
                 input(f"Is {start_date} a day 1 or day 2? Type 1 or 2 only: ").strip())
 
             if day_cycle == 1 or day_cycle == 2:
-                print(f"Your start date is {start_date} and it is a day {day_cycle}.")
+                print(
+                    f"Your start date is {start_date} and it is a day {day_cycle}.")
                 if agree():
                     break
             else:
@@ -31,9 +32,9 @@ def main():
         except ValueError:
             print("Invalid input. Try again.")
             continue
-               
+
     while True:
-        try:    
+        try:
             print("Next, you may add any potential days off within the next sixty days.")
             days_off = off()
             print(f"Your days off are: ")
@@ -59,7 +60,7 @@ def main():
         except ValueError:
             print("Invalid input. Try again.")
             continue
-    
+
     print("Finally, you may choose to start with a custom group order or the default group order.")
     order = input(
         "Would you like to build a custom schedule? y/n: ").strip().lower()
@@ -76,10 +77,11 @@ def main():
     print("Your schedule is complete. Please check the schedule.csv file for your schedule.")
     sys.exit("Thank you for using the schedule builder. Goodbye.")
 
-
+# USER IO FUNCTIONS BELOW
+########################################################################################
 def get_date():
     while True:
-        try: 
+        try:
             year, month, day = input(
                 "Enter date in YYYY MM DD format: ").split(" ")
             year = int(year)
@@ -104,8 +106,6 @@ def agree():
         else:
             print("Invalid input. Please try again.")
             continue
-        
-        
 
 
 def off():
@@ -129,7 +129,7 @@ def off():
         print("Invalid input. Please try again.")
 
 
-# GROUP FUNCTION BELOW
+# GROUP FUNCTION VARIABLES BELOW
 ###########################################################################################
 group_randomizer = 0  # this is for randomizing the subgroup order each loop of 20 groups
 
@@ -143,7 +143,7 @@ all_groups = []
 
 custom = True
 ###########################################################################################
-# DICTS BELOW
+# SCHEDULE HASH TABLE BELOW
 
 schedule = []
 all_periods = ['Period 2', 'Period 3/6', 'Period 8', 'Period 9']
@@ -176,9 +176,7 @@ def custom_start(all_groups):
             try:
                 for i in range(4):
                     temp = temp_group[i][3]
-                    
-                
-                
+
             except IndexError:
                 print("Invalid group order. Please try again.")
                 temp_group = []
@@ -237,7 +235,7 @@ def make_schedule(current_date, day_cycle, days_off, weeks):
         for entry in schedule:
             writer.writerow(entry.values())
 
-# rotate functions begin here
+# ROTATE FUNCTIONS BELOW
 #########################################################################################
 
 
