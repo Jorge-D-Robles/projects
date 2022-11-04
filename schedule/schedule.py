@@ -98,7 +98,7 @@ def make_schedule(current_date, day_cycle, days_off, weeks):
         end_date = end_date + timedelta(days=7)
         weeks -= 1 # subtracts a week from the total number of weeks
         
-    print(end_date)
+    print(f"Your end date is: {end_date} and is a day {day_cycle}.")
 
     while end_date != current_date:
 
