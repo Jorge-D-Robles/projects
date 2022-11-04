@@ -30,8 +30,12 @@ day2_periods = ['Period 2', 'Period 3', 'Period 8', 'Period 9']
 days_off = [date(2022, 11, 16), date(2022, 12, 1)]
 def main():
 
-    current_date = date(2022, 11, 16)
-    end_date = current_date + timedelta(days=90)
+    current_date = date(2022, 11, 14)
+    weeks = 4
+    end_date = current_date
+    while weeks > 0:
+        end_date = end_date + timedelta(days=7)
+        weeks -= 1 # subtracts a week from the total number of weeks
 
     day_cycle = 1
 
@@ -87,8 +91,9 @@ def find_group(all_groups):
 
     group_randomizer += 1
     if group_randomizer == 21:
-        randomize_group(all_groups) #rotates the 5 subgroups of 4 after each letter has gone through
-        group_randomizer = 0
+        all_groups = randomize_group(all_groups) #rotates the 5 subgroups of 4 after each letter has gone through
+        group_randomizer = 1
+        
 
     if total_changes < 20: #to keep groups un-randomized the first loop of 20 groups. base case
         rotated = all_groups[group_index][group_change]
@@ -110,8 +115,8 @@ def find_group(all_groups):
         if group_index == 5: #if the subgroup index reaches 5, reset it to return back to the first subgroup
             group_index = 0
 
-    return rotated[0] if type(rotated) == list else rotated  #return the current rotated letter
-    # return rotated[0] if type(rotated) == list else rotated
+    # return rotated[0]  #return the current rotated letter
+    return rotated[0] if type(rotated) == list else rotated
 
 if __name__ == '__main__':
     main()
