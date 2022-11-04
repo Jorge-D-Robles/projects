@@ -30,6 +30,7 @@ def main():
     make_schedule(start_date, day_cycle, days_off, weeks)
     print("Your schedule is complete. Please check the schedule.csv file for your schedule.")
     sys.exit("Thank you for using the schedule builder. Goodbye.")
+    
 def get_date():
     while True:
         year, month, day = input("Enter date in YYYY MM DD format: ").split(" ")
