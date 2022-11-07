@@ -15,10 +15,10 @@ Prior to schedule.py, the music teachers at Salk spent hours trying to build a s
 **Schedule.py** solves this problem by taking the 20 groups and dividing them 5 bigger subgroups of 4 as noted below.
 
 ```
-all_groups = [['A', 'B', 'C', 'D']
-              ['E', 'F', 'G', 'H']
-              ['I', 'J', 'K', 'L']
-              ['M', 'N', 'O', 'P']
+all_groups = [['A', 'B', 'C', 'D'],
+              ['E', 'F', 'G', 'H'],
+              ['I', 'J', 'K', 'L'],
+              ['M', 'N', 'O', 'P'],
               ['Q', 'R', 'S', 'T']]
 ```
 
