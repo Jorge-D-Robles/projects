@@ -46,4 +46,4 @@ At the end of the loop, the date moves up by one using the datetime library, and
 
 Once the entire schedule has been made, it will print out the schedule in a nice format using the tabulate library as well as write the schedule to a .csv file. 
 
-Thank you for reading. If you have any questions, feel free to contact me at jorge@jorge.dev.
+Thank you for reading. If you have any questions, feel free to contact me at jorge@jorgerobles.com
