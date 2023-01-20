@@ -14,7 +14,7 @@ Prior to schedule.py, the music teachers at Salk spent hours trying to build a s
 
 **Schedule.py** solves this problem by taking the 20 groups and dividing them 5 bigger subgroups of 4 as noted below.
 
-```
+```python
 all_groups = [['A', 'B', 'C', 'D'],
               ['E', 'F', 'G', 'H'],
               ['I', 'J', 'K', 'L'],
@@ -23,7 +23,7 @@ all_groups = [['A', 'B', 'C', 'D'],
 ```
 
 A couple global counters were implemented in order to count how many times the main group sorting function was called. The function first rotates the group using the following:
-```
+```python
 def rotate_group(group):
     group.insert(0, group.pop())
     return group
@@ -32,7 +32,7 @@ def rotate_group(group):
 The index starts at `all_groups[0][0]`, goes up to `all_groups[0][3]`, Rotates the second subgroup and moves up an index `all_groups[1][0]`, etc up to `all_groups[4][3]`. Once the 
 function has been called 20 times, 
 
-```
+```python
 def randomize_group(group):
     random.shuffle(group)
     return group
@@ -46,4 +46,4 @@ At the end of the loop, the date moves up by one using the datetime library, and
 
 Once the entire schedule has been made, it will print out the schedule in a nice format using the tabulate library as well as write the schedule to a .csv file. 
 
-Thank you for reading. If you have any questions, feel free to contact me at jorge@jorge.dev.
+Thank you for reading. If you have any questions, feel free to contact me at jorge@jorgerobles.com
