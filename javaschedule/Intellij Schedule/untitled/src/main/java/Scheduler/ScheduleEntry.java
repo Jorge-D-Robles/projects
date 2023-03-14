@@ -1,4 +1,4 @@
-package org.example;
+package Scheduler;
 import java.time.LocalDate;
 
 public class ScheduleEntry {

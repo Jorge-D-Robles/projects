@@ -1,4 +1,4 @@
-package org.example;
+package Scheduler;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
