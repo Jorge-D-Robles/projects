@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author jorgerobles
+ *
+ */
+module EclipseMusicalSchedule {
+}
