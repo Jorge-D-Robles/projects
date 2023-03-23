@@ -1,6 +1,6 @@
 # CUNYFirst Schedule Builder Automation
 
-This script automates the process of checking for available classes on CUNYFirst's Schedule Builder and registering for them.
+This script automates the process of checking for available classes in the user's shopping cart on CUNYFirst's Schedule Builder and registering for them.
 
 ## How it works
 
@@ -10,7 +10,7 @@ This script automates the process of checking for available classes on CUNYFirst
 4. It then navigates to the Student Center and clicks on the Schedule Builder link.
 5. The script selects the 2023 Fall term and waits for the schedule to load.
 6. It switches the view to display full classes.
-7. The script enters a loop where it checks for available classes and attempts to register for them.
+7. The script enters a loop where it checks for available classes in the shopping cart and attempts to register for them.
 
 ## Edge cases and error handling
 
@@ -27,13 +27,15 @@ This script automates the process of checking for available classes on CUNYFirst
 
 ## Usage
 
+0. Add the courses you want to register for to your shopping cart on CUNYFirst's Schedule Builder before running the script. The script will only attempt to register for classes that are in your shopping cart.
+
 1. Install the required dependencies:
 ```pip install selenium webdriver-manager```
 2. Run the script:
-```python cunyfirst_schedule_builder_automation.py```
+```python enroll.py```
 
 3. Enter your CUNYFirst login credentials and the delay between schedule checks when prompted.
 
-4. The script will navigate through the CUNYFirst website, check for available classes, and attempt to register for them.
+4. The script will navigate through the CUNYFirst website, check for available in the shopping cart classes, and attempt to register for them.
 
 Note: This script requires the Selenium WebDriver and the WebDriver Manager Python packages. Make sure to install them before running the script.
