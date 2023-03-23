@@ -150,11 +150,15 @@ def get_schedule(driver, time_delay):
                 )
                 if course_state.text == "In Shopping Cart":
                     space_in_cart = True
+                    print(f"Class {i} is ready to be enrolled.")
+                else:
+                    print(
+                        f"Class {i} has space and is already enrolled. Moving on...")
                 i += 1
                 continue
 
             if full_indic:
-                print(f"Found full class in {i}")
+                print(f"Class {i} is FULL.")
                 course_state = WebDriverWait(table, 10).until(
                     ec.presence_of_element_located(
                         (By.CSS_SELECTOR, ".course_state"))
