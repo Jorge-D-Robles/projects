@@ -40,6 +40,7 @@ def main(driver):
     print("Logging in...")
     driver.find_element(By.ID, "CUNYfirstUsernameH").send_keys(username)
     driver.find_element(By.ID, "CUNYfirstPassword").send_keys(password)
+    time.sleep(1)
     driver.find_element(By.ID, "submit").click()
     time.sleep(9)
 
