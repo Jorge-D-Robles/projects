@@ -49,7 +49,7 @@ def main(driver):
         driver.find_element(
             By.ID, "win0groupletPTNUI_LAND_REC_GROUPLET$0").click()
     except NoSuchElementException:
-        print("Could not find the Student Center element! Please make sure the target element is present on the page.")
+        print("Could not find the Student Center element! Maybe you inputted the wrong credentials?")
         driver.quit()
 
     # Click on the Schedule Builder element.
@@ -61,7 +61,7 @@ def main(driver):
         driver.find_element(
             By.ID, "win0groupletPTNUI_LAND_REC_GROUPLET$16").click()
     except NoSuchElementException:
-        print("Could not find the Schedule Builder element! Please make sure the target element is present on the page.")
+        print("Could not find the Schedule Builder element! Restarting...")
         driver.quit()
 
     # Switch to the newly opened tab.
