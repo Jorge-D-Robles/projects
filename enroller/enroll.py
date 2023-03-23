@@ -153,7 +153,7 @@ def get_schedule(driver, time_delay):
                     print(f"Class {i} is ready to be enrolled.")
                 else:
                     print(
-                        f"Class {i} has space and is already enrolled. Moving on...")
+                        f"Class {i} is already enrolled. Moving on...")
                 i += 1
                 continue
 
