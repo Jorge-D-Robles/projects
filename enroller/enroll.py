@@ -132,40 +132,36 @@ def get_schedule(driver, time_delay):
         )
         print("Found selection tables.")
         for table in selection_tables:
+            print()
             print(f"Checking class {i}")
-            i += 1
-            class_table = WebDriverWait(table, 10).until(
-                ec.presence_of_all_elements_located(
-                    (By.CSS_SELECTOR, ".course_title"))
-            )
-            name_of_class = class_table.text
             print(
-                f"Checking for full classes in class {name_of_class}")
+                f"Checking for full classes in class {i}...")
             try:
-                full_indic = WebDriverWait(table, 10).until(
+                full_indic = WebDriverWait(table, 3).until(
                     ec.presence_of_all_elements_located(
                         (By.CSS_SELECTOR, ".bg_red.full_indic"))
                 )
             except TimeoutException:
                 # If the element is not found, continue to the next table
-                print(f"Found space in class {name_of_class}")
-                course_state = WebDriverWait(table, 10).until(
+                print(f"Found space in class {i}")
+                course_state = WebDriverWait(table, 3).until(
                     ec.presence_of_element_located(
                         (By.CSS_SELECTOR, ".course_state"))
                 )
                 if course_state.text == "In Shopping Cart":
                     space_in_cart = True
+                i += 1
                 continue
-            print(f"full_indic is {full_indic}")
 
             if full_indic:
-                print(f"Found full class in {name_of_class}")
+                print(f"Found full class in {i}")
                 course_state = WebDriverWait(table, 10).until(
                     ec.presence_of_element_located(
                         (By.CSS_SELECTOR, ".course_state"))
                 )
                 if course_state.text == "In Shopping Cart":
                     full_classes_in_cart = True
+                    i += 1
                     continue
     except NoSuchElementException:
         print("Unable to find the 'selection_table' element.")
