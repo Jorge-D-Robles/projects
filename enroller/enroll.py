@@ -134,7 +134,6 @@ def get_schedule(driver, time_delay):
         print("Found selection tables.")
         for table in selection_tables:
             print()
-            print(f"Checking class {i}")
             print(
                 f"Checking for full classes in class {i}...")
             try:
