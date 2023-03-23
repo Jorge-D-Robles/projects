@@ -103,10 +103,10 @@ def main(driver):
 
 
 def get_user_input():
-    username = "jorge.robles73"
-    password = "Redfire101"
+    username = input("Enter your CUNYFirst username: ")
+    password = input("Enter your CUNYFirst password: ")
 
-    time_delay = 69
+    time_delay = int(input("Enter the time delay in seconds: "))
 
     print()
 

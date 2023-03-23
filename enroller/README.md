@@ -1,41 +1,39 @@
-# CUNYFirst Class Enroller
-**NOTE: THIS SCRIPT IS NOW OUTDATED AND LIKELY NO LONGER WORKS AS OF CUNYFIRST'S 9.2 UPDATE. THE USER INTERFACE HAS COMPLETELY CHANGED. I HAVE APPLIED FOR GRADUATION, AND AM THEREFORE UNABLE TO PROVIDE AN UPDATED VERSION.** 
+# CUNYFirst Schedule Builder Automation
 
-A Python script that automatically enrolls you into a class on CUNYFirst. 
+This script automates the process of checking for available classes on CUNYFirst's Schedule Builder and registering for them.
 
-This script will check the status of a class (Open, Closed, or Wait Listed). If it is open or wait listed, the script will attempt to enroll you in the class. If the class is closed, the script will check every few seconds (you specify the exact amount of time between each check) to see if the status has changed. Once the script terminates (either having enrolled successfully or having encountered some sort of error) a sound effect of a bell ringing will play, letting you know that the program has taken some sort of action.
+## How it works
 
-I was only able to test this using Queens College's courses and using a Queens College CUNYFirst account, so I am not sure if it will work with other CUNY colleges. Seeing as the CUNYFirst system is used at all CUNY schools, however, there should be no issues using this script for other CUNY schools. 
+1. The script initializes the Selenium WebDriver with a custom user agent.
+2. It prompts the user for their CUNYFirst login credentials and the delay between schedule checks (in seconds).
+3. The script navigates to the CUNYFirst login page and logs in using the provided credentials.
+4. It then navigates to the Student Center and clicks on the Schedule Builder link.
+5. The script selects the 2023 Fall term and waits for the schedule to load.
+6. It switches the view to display full classes.
+7. The script enters a loop where it checks for available classes and attempts to register for them.
 
-# Dependencies 
-For this program to function correctly you must have Python installed, along with the selenium, webdriver-manager, playsound, and keyboard libaries for Python. Additionally, you must install Google Chrome.
+## Edge cases and error handling
 
-- Download Python: https://www.python.org/downloads/
-- Install selenium: `pip install selenium`
-- Install webdriver-manager: `pip install webdriver-manager`
-- Install playsound: `pip install playsound`
-- Install keyboard: `pip install keyboard`
+- The script handles cases where it cannot find elements on the page (e.g., Student Center link, Schedule Builder link, etc.) by quitting the WebDriver and printing an error message.
+- If a TimeoutException is raised, the script will print an error message and quit the WebDriver.
+- If any other exception occurs during the main loop, the script will quit the WebDriver, wait for 5 seconds, and restart.
 
-- Download Google Chrome: https://www.google.com/chrome/
+## Assumptions and limitations
 
-# How to Use 
-- Download and install Python, along with the other relevant dependencies as outlined above. 
-- On CUNYFirst, add the class you wish to monitor to your Enrollment Shopping Cart. 
-- Download the zip file of the cunyfirst-class-enroller Github archive, and extract it to a folder. 
-- Run a terminal window in the folder that you extracted the zip file to, and enter `python enroller.py`.
-- Follow the terminal prompts for user input. 
+- This script assumes that the user has a CUNYFirst account and knows their login credentials.
+- The script uses hardcoded CSS selectors and XPaths to locate elements on the page, so if the website's structure changes, the script may break.
+- The script currently selects the 2023 Fall term by executing a JavaScript function. If the term or function changes, the script may need to be updated.
+- Delays (using `time.sleep()`) have been added throughout the script to account for loading times. However, these delays may not be sufficient for slower internet connections, and the script may need to be adjusted accordingly.
 
-# Troubleshooting
-If the script fails to work properly, here are a few things to try: 
+## Usage
 
-- Make sure that the CUNYFirst system isn't down for maintenance.
-- Make sure that the class you wish to monitor is in your Enrollment Shopping Cart.
-- Make sure that you are eligible to enroll in classes (ex: no holds on your account, you are past your enrollment date and time, etc.).  
-- Make sure that you aren't trying to enroll in a class with the same class number as a class that you are already enrolled in (ex: You can't enroll in multiple sections of ANTH 103). 
-- Make sure that there isn't a time conflict between a class already in your schedule and the class you wish to enroll in. 
+1. Install the required dependencies:
+```pip install selenium webdriver-manager```
+2. Run the script:
+```python cunyfirst_schedule_builder_automation.py```
 
-# Credits
-The bell ringing sound effect was obtained from https://freesound.org, and was licensed under the Creative Commons 0 License (https://creativecommons.org/publicdomain/zero/1.0/). The specific sound effect that I used can be found at the following link: https://freesound.org/people/danarobinsondesignsgmailcom/sounds/377639/.  
+3. Enter your CUNYFirst login credentials and the delay between schedule checks when prompted.
 
+4. The script will navigate through the CUNYFirst website, check for available classes, and attempt to register for them.
 
-
+Note: This script requires the Selenium WebDriver and the WebDriver Manager Python packages. Make sure to install them before running the script.
