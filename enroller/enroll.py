@@ -1,5 +1,6 @@
 import sys
 import time
+from twilio.rest import Client
 
 from selenium.webdriver.chrome.options import Options
 
@@ -14,6 +15,22 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
 
 from random import randint
+
+
+def send_text_message(body):
+    # Your Twilio account SID and Auth Token
+    account_sid = "your_account_sid"
+    auth_token = "your_auth_token"
+
+    # Initialize the Twilio client
+    client = Client(account_sid, auth_token)
+
+    # Send the text message
+    message = client.messages.create(
+        body=body,
+        from_="your_twilio_phone_number",
+        to="your_phone_number"
+    )
 
 
 def init_driver():
@@ -101,6 +118,8 @@ def main(driver):
 
     time.sleep(5)
     print("Starting schedule loop...")
+    send_text_message(
+        "Starting schedule loop. You will receive a text message when a class is registered.")
     while True:
         get_schedule(driver, time_delay)
 
@@ -249,6 +268,7 @@ def get_schedule(driver, time_delay):
             "The 'Failed' element did not appear within 10 seconds. Complete success!")
     if success_element and success_element.is_displayed() and not (failed_element and failed_element.is_displayed()):
         print("Done! Complete success - no failures detected. Exiting program...")
+        send_text_message("Complete success - no failures detected.")
         exit_routine()
 
     # Random delay based off user input.
@@ -267,5 +287,6 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"An error occurred: {e}")
             print("Restarting the script...")
+            send_text_message(f"An error occurred, please check computer.")
             driver.quit()
             time.sleep(5)
