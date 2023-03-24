@@ -13,6 +13,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
 
+from random import randint
+
 
 def init_driver():
     chrome_options = Options()
@@ -143,7 +145,7 @@ def get_schedule(driver, time_delay):
                 )
             except TimeoutException:
                 # If the element is not found, continue to the next table
-                print(f"Found space in class {i}")
+                print(f"Found space in class {i}!")
                 course_state = WebDriverWait(table, 3).until(
                     ec.presence_of_element_located(
                         (By.CSS_SELECTOR, ".course_state"))
@@ -159,7 +161,7 @@ def get_schedule(driver, time_delay):
 
             if full_indic:
                 print(f"Class {i} is FULL.")
-                course_state = WebDriverWait(table, 10).until(
+                course_state = WebDriverWait(table, 3).until(
                     ec.presence_of_element_located(
                         (By.CSS_SELECTOR, ".course_state"))
                 )
@@ -173,11 +175,14 @@ def get_schedule(driver, time_delay):
     except TimeoutException:
         print("The 'selection_table' element took too long to load or become clickable.")
         driver.quit()
-    # If there are full classes in the shopping cart, refresh the page and wait 60 seconds before checking again.
+    # If there are ONLY full classes in the shopping cart, refresh the page and wait some seconds before checking again.
+    # to test this, change and not space to and space so it doesn't send the schedule request
     if full_classes_in_cart and not space_in_cart:
-        print("Full class found in the shopping cart. Refreshing page...")
+        delay = randint(time_delay - 20, time_delay + 20)
+        print(
+            f"No classes available. Refreshing page and sleeping for {delay} seconds...")
         driver.refresh()
-        time.sleep(60)
+        time.sleep(delay)
         return
 
     # Locate and click on the "Get this Schedule" button.
@@ -195,6 +200,8 @@ def get_schedule(driver, time_delay):
         driver.quit()
 
     time.sleep(5)
+    success_element = None
+    failed_element = None
 
     # Locate and click on the "Do Actions" button.
     try:
@@ -203,7 +210,7 @@ def get_schedule(driver, time_delay):
                 (By.CSS_SELECTOR, ".big_button.button_do_actions"))
         )
         do_actions_button.click()
-        print("Attempting to get schedule...")
+        print("\nAttempting to get schedule...")
         time.sleep(5)
     except NoSuchElementException:
         print("Unable to find the 'Do Actions' button.")
@@ -213,17 +220,41 @@ def get_schedule(driver, time_delay):
         print("The 'Do Actions' button took too long to load or become clickable.")
         driver.quit()
 
-    # Check if the "Failed" message is visible.
-    failed_element = WebDriverWait(driver, 10).until(
-        ec.presence_of_element_located(
-            (By.XPATH, "//strong[contains(text(), 'Failed')]"))
-    )
-    # If the "Failed" message is visible, refresh the page and start over.
-    if failed_element.is_displayed():
-        print("Failed! Refreshing page...")
-        driver.refresh()
-    print(f"Sleeping until next check... {time_delay} seconds.")
-    time.sleep(time_delay)
+    try:
+        # Check if the "Success" message is visible.
+        success_element = WebDriverWait(driver, 10).until(
+            ec.presence_of_element_located(
+                (By.XPATH, "//*[contains(text(), 'Success')]"))
+        )
+        # If the "Success" message is visible, refresh the page and start over.
+        if success_element.is_displayed():
+            print("Success detected!")
+            print("Checking for failure message...")
+    except TimeoutException:
+        print(
+            "The 'Success' element did not appear within 10 seconds. Checking for failure...")
+
+    try:
+        # Check if the "Failed" message is visible.
+        failed_element = WebDriverWait(driver, 10).until(
+            ec.presence_of_element_located(
+                (By.XPATH, "//*[contains(text(), 'Failed')]"))
+        )
+        # If the "Failed" message is visible, refresh the page and start over.
+        if failed_element.is_displayed():
+            print("Failed! Refreshing page...")
+            driver.refresh()
+    except TimeoutException:
+        print(
+            "The 'Failed' element did not appear within 10 seconds. Complete success!")
+    if success_element and success_element.is_displayed() and not (failed_element and failed_element.is_displayed()):
+        print("Done! Complete success - no failures detected. Exiting program...")
+        exit_routine()
+
+    # Random delay based off user input.
+    delay = randint(time_delay - 20, time_delay + 20)
+    print(f"Sleeping until next check for {delay} seconds...")
+    time.sleep(delay)
 
 
 if __name__ == "__main__":
