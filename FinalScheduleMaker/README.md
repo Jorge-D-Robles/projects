@@ -1,8 +1,10 @@
-# ScheduleBuilder Documentation
+# ScheduleMaker Documentation
 
-`ScheduleBuilder` is a Java program designed to solve the unique scheduling problem faced by Jonas E. Salk Middle School's music lesson plan. The school operates on a two-day cycle with 20 total groups and four periods available for lesson periods each day. The students must not miss the same period more than once every four weeks, and if possible, they should shuffle through Monday - Friday rather than always going on the same day of the week. 
+`ScheduleMaker` is a Java program designed to solve the unique scheduling problem faced by Jonas E. Salk Middle School's music lesson plan. The school operates on a two-day cycle with 20 total groups and four periods available for lesson periods each day. The students must not miss the same period more than once every four weeks, and if possible, they should shuffle through Monday - Friday rather than always going on the same day of the week. 
 
 This Java program is a refactored version of the original Python program, `schedule.py`, and it incorporates Object-Oriented Programming (OOP) principles to enhance modularity, readability, and maintainability.  It also includes a complete graphical user interface (GUI) rather than the command-line interface of the original Python version.
+
+This program is easily accessed by running the ***ScheduleMaker.jar*** as long as a Java Runtime Environment is installed on the computer running the file.
 
 ## Class Structure
 
