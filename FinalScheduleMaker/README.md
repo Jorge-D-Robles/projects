@@ -4,7 +4,7 @@
 
 This Java program is a refactored version of the original Python program, `schedule.py`, and it incorporates Object-Oriented Programming (OOP) principles to enhance modularity, readability, and maintainability.  It also includes a complete graphical user interface (GUI) rather than the command-line interface of the original Python version.
 
-This program is easily accessed by running the ***ScheduleMaker.jar*** as long as a Java Runtime Environment is installed on the computer running the file.
+This program is easily accessed by running the ***ScheduleMaker.jar*** as long as a Java Runtime Environment is installed on the computer running the file and outputs the completed schedule as both an easy to read **table** as well as the option to save the schedule as a ***CSV*** file to allow for sharing and modification.
 
 ## Class Structure
 
