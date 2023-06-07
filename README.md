@@ -1,6 +1,6 @@
 # Jorge Robles' Project Repository
 
-Welcome to my project repository! Here, you'll find a collection of extracurricular projects that I've built to solve problems I've encountered throughout my coding journey. As a former middle school music teacher in New York City, I've noticed several issues that could be easily automated using code, and I've based some of my projects on these real-world problems.
+Welcome to my project repository! Here, you'll find a collection of extracurricular projects that I've built to solve problems I've encountered throughout my second Bachelor's degree in Computer Science at Queens College. As a former public school music teacher in New York City, I've noticed several issues that could be easily automated using code, and I've based some of my projects on these real-world problems alongside new ideas that have arisen.
 
 ## Projects
 
