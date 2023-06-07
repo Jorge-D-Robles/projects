@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="FinalScheduleMaker">
-    <output-path>$PROJECT_DIR$/out/artifacts/</output-path>
-    <root id="archive" name="FinalScheduleMaker.jar">
-      <element id="module-output" name="FinalScheduleMaker" />
-    </root>
-  </artifact>
-</component>
