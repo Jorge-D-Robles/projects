@@ -34,6 +34,6 @@ Once the schedule is built, it is returned as a list of `ScheduleEntry` objects.
 
 ## Conclusion
 
-The `ScheduleBuilder` Java program provides an efficient and flexible solution to the music lesson scheduling problem at Jonas E. Salk Middle School. By leveraging OOP principles, it offers a more structured and maintainable approach compared to the original Python version. 
+The `ScheduleMaker` Java program provides an efficient and flexible solution to the music lesson scheduling problem at Jonas E. Salk Middle School. By leveraging OOP principles, it offers a more structured and maintainable approach compared to the original Python version. 
 
 For any questions or further information, feel free to contact at jorge@jorgerobles.com.
