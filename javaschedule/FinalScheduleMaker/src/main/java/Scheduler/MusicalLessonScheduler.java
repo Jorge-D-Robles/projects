@@ -114,7 +114,7 @@ public class MusicalLessonScheduler {
 
                 // Create a ScheduleBuilder object with the user inputs and generate the
                 // schedule.
-                ScheduleBuilder scheduleBuilder = new ScheduleBuilder(startDate, dayCycle, daysOff, weeks, allGroups);
+                ScheduleBuilder scheduleBuilder = new ScheduleBuilder(startDate, dayCycle, daysOff, weeks, customSchedule, allGroups);
                 List<ScheduleEntry> schedule = scheduleBuilder.buildSchedule();
 
                 // Display the generated schedule in a new window.
@@ -133,8 +133,8 @@ public class MusicalLessonScheduler {
         frame.setVisible(true);
     }
 
-    class DaysOffPanel extends JPanel {
-        private List<JTextField> dayOffFields;
+    static class DaysOffPanel extends JPanel {
+        private final List<JTextField> dayOffFields;
 
         public DaysOffPanel() {
             super(new GridLayout(0, 1));

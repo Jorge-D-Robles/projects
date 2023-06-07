@@ -5,72 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0760cfec-a980-4156-9364-e0e4d99138c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../FinalScheduleMaker/.idea/artifacts/FinalScheduleMaker.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalScheduleMaker/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EclipseMusicalSchedule/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EclipseMusicalSchedule/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EclipseMusicalSchedule/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EclipseMusicalSchedule/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EclipseMusicalSchedule/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EclipseMusicalSchedule/src/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/Documentation/MusicalLessonScheduler.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/artifacts/Schedule_Builder_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/Schedule Builder.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/out/artifacts/Schedule_Builder_jar/Schedule Builder.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/src/main/java/Scheduler/MusicalLessonScheduler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/src/main/java/Scheduler/ScheduleBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/src/main/java/Scheduler/ScheduleEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Intellij Schedule/untitled/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/.idea/MusicalSchedule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/MusicalLessonScheduler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/ScheduleBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MusicalSchedule/ScheduleEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule Builder/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule Builder/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule Builder/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule Builder/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule Builder/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule Builder/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule Builder/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule Builder/src/main/java/ScheduleBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schedule/src/ScheduleBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scheduler/MusicalLessonScheduler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scheduler/ScheduleBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scheduler/ScheduleEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scheduler/MusicalLessonScheduler$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scheduler/MusicalLessonScheduler$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scheduler/MusicalLessonScheduler$DaysOffPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scheduler/MusicalLessonScheduler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scheduler/ScheduleBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scheduler/ScheduleEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,23 +30,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/jorgerobles/repos/projects/javaschedule/ScheduleMaker/src/main/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.21067157",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jorgerobles/repos/projects/javaschedule/ScheduleMaker/src/main/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.21067157&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -166,6 +101,8 @@
       <option name="presentableId" value="Default" />
       <updated>1678842875325</updated>
       <workItem from="1678842876492" duration="642000" />
+      <workItem from="1686149825976" duration="22000" />
+      <workItem from="1686149853263" duration="36000" />
     </task>
     <servers />
   </component>
