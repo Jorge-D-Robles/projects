@@ -2,62 +2,106 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class DLList<E> {
-    /* Nest SingleNode class into DLL, to create a full doubly linked list */
-    private class SingleNode {
-        public SingleNode prev;
+    /* Nest Node class into DLL, to create a full doubly linked list */
+    private class Node {
+        public Node prev;
         public E item;
-        public SingleNode next;
+        public Node next;
 
-        public SingleNode(SingleNode p, E i, SingleNode n) {
+        public Node(Node p, E i, Node n) {
             prev = p;
             item = i;
             next = n;
         }
     }
+
     //the first item (if it exists) is at sentinel.next
-    private final SingleNode sentinel;
+    private final Node sentinel;
     //set the counter of size for linked list
     private int size;
+
     // Creates an empty DLList - instantiate a list w/ no ints if needed - constructor
     public DLList() {
-        sentinel = new SingleNode(null, null, null);
+        sentinel = new Node(null, null, null);
+        sentinel.next = sentinel; //add next and prev pointers back to the sentinel
+        sentinel.prev = sentinel;
         size = 0;
     }
+
     //Constructor for SLL list, adding a sentinel node and adding a first element
     public DLList(E x) {
-        sentinel = new SingleNode(null, null, null);
-        sentinel.next = new SingleNode(sentinel, x, null);
+        sentinel = new Node(null, null, null);
+        sentinel.next = new Node(sentinel, x, null);
         sentinel.prev = sentinel.next;
         size = 1;
     }
+
     public static void main(String[] args) {
-        DLList<String> L = new DLList<>("10"); //creates new SLL with value 10 as first
-        L.linearSearch("lll");
-        L.addFirst("lll");
-        L.linearSearch("lll");
-        L.printList();
+        DLList<Integer> list = new DLList<>(); //creates new DLL, no nodes
+        for (int i = 1; i < 26; i++) {
+            list.addLast(i);
+        }
+        list.printList();
+        list.insert(420, 21);
+        list.linearSearch(420);
+        list.remove(5);
+        list.printList();
     }
 
     /* Linked List methods added to the class */
 
     //adds x to the front of the list
     public void addFirst(E x) {
-        SingleNode newNode = new SingleNode(sentinel, x, sentinel.next);
+        Node newNode = new Node(sentinel, x, sentinel.next);
         sentinel.next.prev = newNode; //sets the pointer from first node's prev -> new node
         sentinel.next = newNode; //sets the first node (after sentinel) to new node
         if (size == 0) //if there are no elements in the list
             sentinel.prev = newNode; // set the last node to be first node as well
         size++;
     }
+
     /*Adds an item to the end of the list */
     public void addLast(E x) {
-        SingleNode newNode = new SingleNode(sentinel.prev, x, sentinel);
+        Node newNode = new Node(sentinel.prev, x, sentinel);
         sentinel.prev.next = newNode;
         sentinel.prev = newNode;
         if (size == 0)
             sentinel.next = newNode;
         size++;
     }
+    /* Inserts an item to any point in the linked list */
+    public void insert(E x, int index) {
+        if (index < 0 || index > size)
+            throw new IndexOutOfBoundsException("Index out of bounds");
+
+        Node currentNode = sentinel.next;
+        int location = 0;
+        while (currentNode != null && currentNode != sentinel) {
+            if (location == index) {
+                Node newNode = new Node(currentNode.prev, x, currentNode);
+                currentNode.prev.next = newNode;
+                currentNode.prev = newNode;
+                size++;
+                return;
+            }
+            currentNode = currentNode.next;
+            location++;
+        }
+    }
+    /* Removes any item from the list */
+    public void remove(E x) {
+        Node currentNode = sentinel.next;
+        while (currentNode != null && currentNode != sentinel) {
+            if (x.equals(currentNode.item)) {
+                currentNode.prev.next = currentNode.next;
+                currentNode.next.prev = currentNode.prev;
+                size--;
+                return;
+            }
+            currentNode = currentNode.next;
+        }
+    }
+
     //remove and return first item of DLL
     public E popFirst() {
         if (size == 0) //if list is empty
@@ -101,7 +145,7 @@ public class DLList<E> {
 
     //iterates through the list, printing out the entire list
     public String printList() {
-        SingleNode currentNode = sentinel.next;
+        Node currentNode = sentinel.next;
         StringBuilder output = new StringBuilder();
 
         while (currentNode != null && currentNode != sentinel) {
@@ -113,11 +157,11 @@ public class DLList<E> {
         return output.toString().trim(); // trim to remove trailing space
     }
     public int linearSearch(E input) {
-        SingleNode currentNode = sentinel.next;
+        Node currentNode = sentinel.next;
         int location = 0;
         while (currentNode != null && currentNode != sentinel) {
             if (currentNode.item.equals(input)) {
-                System.out.println("Input found at index " + location);
+                System.out.println("Input " + input + " found at index " + location);
                 return location;
             }
 
