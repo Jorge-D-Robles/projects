@@ -11,6 +11,8 @@ public class Main {
         list.insert(420, 21);
         list.linearSearch(420);
         list.remove(5);
+        list.popFirst();
+        list.popLast();
         list.printList();
     }
 }
