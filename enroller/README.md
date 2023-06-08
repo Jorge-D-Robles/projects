@@ -1,6 +1,7 @@
 # CUNYFirst Schedule Builder Automation
 
 This script automates the process of checking for available classes in the user's shopping cart on CUNYFirst's Schedule Builder and registering for them.
+## Note: This version of the script is an early alpha version. The final and much more refined version will be added here in the coming months and is currently private.
 
 ## How it works
 
