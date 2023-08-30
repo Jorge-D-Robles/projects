@@ -14,7 +14,7 @@ The `enroller.py` Python script automates the process of checking for available 
 
 ## Edge cases and error handling
 
-The script handles cases where it cannot find elements on the page (e.g., Student Center link, Schedule Builder link, etc.) by quitting the WebDriver and printing an error message. If a TimeoutException is raised, the script will print an error message and quit the WebDriver. If any other exception occurs during the main loop, the script will quit the WebDriver, wait for 5 seconds, and restart.
+The script handles cases where it cannot find elements on the page (e.g., Student Center link, Schedule Builder link, etc.) by quitting the WebDriver and printing an error message. If a TimeoutException is raised, the script will print an error message and quit the WebDriver. Regardless of exception or error, the script will quit the WebDriver, wait for 5 seconds, and automatically restart without user input, allowing for constant uptime.
 
 ## Assumptions and limitations
 
