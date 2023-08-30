@@ -24,7 +24,7 @@ This script assumes that the user has a CUNYFirst account and knows their login 
 
 1. Add your desired schedule to the first favorite slot on CUNYFirst's Schedule Builder before running the script. The script will attempt to match your current schedule with this favorite schedule and enroll or swap the classes that don't match as they open up.
 2. Install the required dependencies: `pip install selenium webdriver-manager twilio requests`
-3. Run the script: `python swapper.py`
+3. Run the script: `python3 enroller.py`
 4. Enter your CUNYFirst login credentials and the delay between schedule checks when prompted.
 5. The script will navigate through the CUNYFirst website, check the first favorite schedule for available classes, and attempt to swap them with the current schedule.
 
