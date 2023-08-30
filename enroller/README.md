@@ -1,6 +1,6 @@
 # CUNYFirst Schedule Enroller
 
-The `enroller.py` Python script automates the process of checking for available classes on CUNYFirst's Schedule Builder and swapping them with the current schedule. It uses Selenium WebDriver for browser automation, and Twilio for sending text message notifications.
+The `enroller.py` Python script automates the process of checking for available classes on CUNYFirst's Schedule Builder and swapping them with the current schedule. It uses Selenium WebDriver for browser automation, and Twilio for sending text message notifications. The script utilizes a human-like approach to traverse through the site and enroll for classes accordingly.
 
 ## How it works
 
