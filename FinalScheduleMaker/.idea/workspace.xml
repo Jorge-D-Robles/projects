@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6a4e55da-fcdd-443a-abbd-563104a91e31" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/src/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../qccs_study_group/fall2022/week2/a.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../qccs_study_group/fall2022/week2/conditionals.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../qccs_study_group/fall2022/week2/dowhile.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../qccs_study_group/fall2022/week2/for.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../qccs_study_group/fall2022/week2/mickeyds.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/badcalc.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab1/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab1/hello.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab2/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab2/lab2a.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab2/lab2b.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab3/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab3/lab3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab3/quiz.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab4/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab4/lab4a.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab4/lab4b.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab5/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab5/lab5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab5/test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab6/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab6/extraCreditLabA.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/labs/lab6/test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/study/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/study/conditionals.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/study/dowhile.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/study/for.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS-Courses/study/mickeyds.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../blog" beforeDir="false" afterPath="$PROJECT_DIR$/../../blog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/badcalc.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab1/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab1/hello.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab2/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab2/lab2a.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab2/lab2b.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab3/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab3/lab3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab3/quiz.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab4/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab4/lab4a.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab4/lab4b.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab5/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab5/lab5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab5/test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab6/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab6/extraCreditLabA.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/labs/lab6/test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/study/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/study/conditionals.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/study/dowhile.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/study/for.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csci111/study/mickeyds.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../jorge.dev" beforeDir="false" afterPath="$PROJECT_DIR$/../../jorge.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/out/production/dsa/DLList$Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/out/production/dsa/DLList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/out/production/dsa/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/out/production/dsa/SLList$SingleNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/out/production/dsa/SLList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/src/DLList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/src/DLList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Data Structures &amp; Algorithms/dsa/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scheduler/MusicalLessonScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scheduler/MusicalLessonScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scheduler/ScheduleBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scheduler/ScheduleBuilder.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NHvY9P9WfTVcINfJcZDbdkQQrY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/robles/repos/projects/FinalScheduleMaker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a4e55da-fcdd-443a-abbd-563104a91e31" name="Changes" comment="" />
+      <created>1679333866775</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679333866775</updated>
+      <workItem from="1679333867933" duration="2213000" />
+      <workItem from="1689888737918" duration="2096000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
