@@ -25,12 +25,10 @@ def linear_search(arr, num):
 def binary_search(arr, num):
     low = 0
     high = len(arr) - 1
-    print(f"Finding {num}")
     while low <= high:
         if num > arr[-1] or num < arr[0]:
             return False
         mid = (low + high) // 2
-        print(arr[low], arr[mid], arr[high])
         if num == arr[mid]:
             print(arr[0:mid+1])
             return f"Found at index {mid}"
