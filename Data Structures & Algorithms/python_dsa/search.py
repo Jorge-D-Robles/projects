@@ -1,4 +1,6 @@
 from random import randint
+
+
 def generate_array(size, num=5):
     arr = set()
     print("Setting array up")
@@ -12,11 +14,14 @@ def generate_array(size, num=5):
     print("done")
     return arr
 
+
 def linear_search(arr, num):
     if num in arr:
         return True
     else:
         return False
+
+
 def binary_search(arr, num):
     low = 0
     high = len(arr) - 1
@@ -27,18 +32,23 @@ def binary_search(arr, num):
         mid = (low + high) // 2
         print(arr[low], arr[mid], arr[high])
         if num == arr[mid]:
-            return True
+            print(arr[0:mid+1])
+            return f"Found at index {mid}"
+
         elif num > arr[mid]:
             low = mid + 1
         else:
             high = mid - 1
     return False
 
+
 def main():
     num = int(input("What number to find?: "))
-    arr = [i for i in range(100)]
+    arr = generate_array(100, 25)
+    # arr = [i for i in range(100)]
     print(linear_search(arr, num))
     print(binary_search(arr, num))
+
 
 if __name__ == "__main__":
     main()
