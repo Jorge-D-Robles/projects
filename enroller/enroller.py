@@ -24,9 +24,9 @@ from datetime import datetime
 Copyright 2023 Jorge Robles
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
-documentation files (the “Software”), to deal in the Software without restriction, including without limitation the 
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
-and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+documentation files (the “Software”), to deal in the Software without restriction except for selling this software. This software CANNOT be sold
+for profit by ANYONE besides Jorge Robles if deemed necessary. This is currently a FREE AND OPEN SOURCE program.
+This software is subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the 
 Software.
@@ -38,7 +38,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 SOFTWARE. 
 
 DISCLAIMER: This script is for educational purposes only. The developer is not responsible for any 
-consequences that may occur from using this script. This software is released "as is" under the MIT license.
+consequences that may occur from using this script. This software is released "as is" under a modified MIT license.
 
 Requirements to run: Python 3, Selenium, Twilio, and the ChromeDriverManager
 
