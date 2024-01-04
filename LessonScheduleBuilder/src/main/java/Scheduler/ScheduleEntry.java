@@ -56,13 +56,13 @@ public class ScheduleEntry {
         String period = "";
         switch (periodIndex) {
             case 1:
-                period = dayCycle % 2 == 1 ? "Period 1" : "Period 4";
+                period = dayCycle % 2 == 1 ? "Period 1" : "Period 6";
                 break;
             case 2:
-                period = dayCycle % 2 == 1 ? "Period 3" : "Period 6";
+                period = dayCycle % 2 == 1 ? "Period 3" : "Period 8";
                 break;
             case 3:
-                period = dayCycle % 2 == 1 ? "Period 4" : "Period 8";
+                period = "Period 4";
                 break;
             case 4:
                 period = "Period 9";

@@ -20,6 +20,12 @@ import java.util.List;
 
 public class MusicalLessonScheduler {
     private static List<List<String>> allGroups;
+    private static LocalDate startDate;
+    private static int dayCycle;
+    private static int weeks;
+    private static List<LocalDate> daysOff;
+    private static boolean customSchedule;
+
     // Define a date format pattern for LocalDate parsing and formatting.
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy MM dd");
 
@@ -83,11 +89,11 @@ public class MusicalLessonScheduler {
         startButton.addActionListener(e -> {
             try {
                 // Parse user inputs.
-                LocalDate startDate = LocalDate.parse(startDateField.getText(), DATE_FORMAT);
-                int dayCycle = Integer.parseInt(dayCycleField.getText());
-                int weeks = Integer.parseInt(weeksField.getText());
-                List<LocalDate> daysOff = daysOffPanel.getDaysOff();
-                boolean customSchedule = customScheduleCheckbox.isSelected();
+                startDate = LocalDate.parse(startDateField.getText(), DATE_FORMAT);
+                dayCycle = Integer.parseInt(dayCycleField.getText());
+                weeks = Integer.parseInt(weeksField.getText());
+                daysOff = daysOffPanel.getDaysOff();
+                customSchedule = customScheduleCheckbox.isSelected();
 
                 // Validate user inputs.
                 if (dayCycle != 1 && dayCycle != 2) {
@@ -114,7 +120,9 @@ public class MusicalLessonScheduler {
 
                 // Create a ScheduleBuilder object with the user inputs and generate the
                 // schedule.
+
                 ScheduleBuilder scheduleBuilder = new ScheduleBuilder(startDate, dayCycle, daysOff, weeks, customSchedule, allGroups);
+
                 List<ScheduleEntry> schedule = scheduleBuilder.buildSchedule();
 
                 // Display the generated schedule in a new window.
@@ -324,7 +332,7 @@ public class MusicalLessonScheduler {
 
     // Method to display the generated schedule in a new window.
     private void displaySchedule(List<ScheduleEntry> schedule) {
-        String[] columnNames = { "Date", "Period 2", "Group 1", "Period 3/6", "Group 2", "Period 8", "Group 3",
+        String[] columnNames = { "Date", "Period 1/6", "Group 1", "Period 3/8", "Group 2", "Period 4", "Group 3",
                 "Period 9", "Group 4" };
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
@@ -353,6 +361,12 @@ public class MusicalLessonScheduler {
         frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
         frame.setPreferredSize(new Dimension(1100, 800));
 
+        // Create a reroll button to reroll schedule.
+        JButton ReRollButton = new JButton("Re-Roll");
+        ReRollButton.addActionListener(e -> {
+            frame.dispose();
+            reRollSchedule(new ScheduleBuilder(startDate, dayCycle, daysOff, weeks, customSchedule, allGroups));
+        });
         // Create a save button to export the schedule to a CSV file.
         JButton saveButton = new JButton("Save to CSV");
         saveButton.addActionListener(e -> {
@@ -374,6 +388,7 @@ public class MusicalLessonScheduler {
 
         // Add the save button to the bottom panel of the frame.
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        bottomPanel.add(ReRollButton);
         bottomPanel.add(saveButton);
         frame.getContentPane().add(bottomPanel, BorderLayout.SOUTH);
 
@@ -382,6 +397,13 @@ public class MusicalLessonScheduler {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
+
+    // Create a re-roll button to re-roll the schedule.
+    private void reRollSchedule(ScheduleBuilder newBuilder) {
+        List<ScheduleEntry> newSched = newBuilder.buildSchedule();
+        displaySchedule(newSched);
+    }
+
 
     // Method to export the schedule table to a CSV file.
     private void exportToCSV(JTable table, File file) {

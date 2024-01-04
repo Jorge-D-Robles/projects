@@ -16,16 +16,26 @@ public class ScheduleBuilder {
 
     private int group_randomizer = 0, group_change = 0, group_index = 0, total_changes = 0;
 
-    public ScheduleBuilder(LocalDate startDate, int dayCycle, List<LocalDate> daysOff, int weeks, boolean customSchedule,
-                           List<List<String>> allGroups) {
+    public ScheduleBuilder(LocalDate startDate, int dayCycle, List<LocalDate> daysOff, int weeks, boolean customSchedule, List<List<String>> allGroups) {
         this.startDate = startDate;
         this.dayCycle = dayCycle;
-        this.daysOff = daysOff;
+        this.daysOff = new ArrayList<>(daysOff); // Deep copy of daysOff
         this.weeks = weeks;
-        this.allGroups = allGroups;
         this.customSchedule = customSchedule;
+        this.allGroups = new ArrayList<>(); // Start of deep copy for allGroups
+        for (List<String> group : allGroups) {
+            this.allGroups.add(new ArrayList<>(group));
+        } // End of deep copy for allGroups
         this.schedule = new ArrayList<>();
+
+        // Reset internal state
+        group_randomizer = 0;
+        group_change = 0;
+        group_index = 0;
+        total_changes = 0;
     }
+
+
 
     private void rotateList(List<String> list) {
         Collections.rotate(list, 1);
@@ -72,6 +82,7 @@ public class ScheduleBuilder {
         return group;
     }
     public List<ScheduleEntry> buildSchedule() {
+
         LocalDate currentDate = startDate;
         LocalDate endDate = startDate.plusWeeks(weeks);
 
@@ -96,5 +107,4 @@ public class ScheduleBuilder {
 
         return schedule;
     }
-
 }
