@@ -1,5 +1,7 @@
 # CUNYFirst Schedule Enroller
 
+## Note: This script is partially outdated. Minor edits (documented in code) heading into the right semester for the schedule are outdated as this was written for Fall 2023 only. If you managed to modify the script to account for the correct date, please submit a pull request and I'll update it.
+
 The `enroller.py` Python script automates the process of checking for available classes on CUNYFirst's Schedule Builder and swapping them with the current schedule. It uses Selenium WebDriver for browser automation, and Twilio for sending text message notifications. The script utilizes a human-like approach to traverse through the site and enroll for classes accordingly.
 
 ## How it works
