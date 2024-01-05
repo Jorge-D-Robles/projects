@@ -332,11 +332,12 @@ public class MusicalLessonScheduler {
 
     // Method to display the generated schedule in a new window.
     private void displaySchedule(List<ScheduleEntry> schedule) {
-        String[] columnNames = { "Date", "Period 1/6", "Group 1", "Period 3/8", "Group 2", "Period 4", "Group 3",
-                "Period 9", "Group 4" };
+        String[] columnNames = { "Date", "Period", "Group 1", "Period", "Group 2", "Period", "Group 3",
+                "Period", "Group 4" };
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         // Add the schedule entries to the table model.
+        model.addRow(new Object[] { "Note:", "Pd 1 = 6", "Pd 3 = 8", "Pd 4 = 4", "Pd 9 = 9", "when", "swapping", "day 1", "to day 2" });
         int counter = -1;
         for (ScheduleEntry entry : schedule) {
             counter++;
