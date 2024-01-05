@@ -43,7 +43,7 @@ public class MusicalLessonScheduler {
 
     private void createAndShowGUI() {
         // Create the main frame and set its properties.
-        JFrame frame = new JFrame("Musical Lesson Scheduler by Jorge Robles");
+        JFrame frame = new JFrame("Musical Lesson Scheduler by Jorge Robles Version Jan 2024");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(new Dimension(800, 600));
         frame.setLayout(new BorderLayout());
@@ -337,16 +337,21 @@ public class MusicalLessonScheduler {
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         // Add the schedule entries to the table model.
+        int counter = -1;
         for (ScheduleEntry entry : schedule) {
+            counter++;
+            if (counter % 5 == 0) {
+                model.addRow(new Object[] { "", "", "", "", "", "", "", "", "" });
+            }
             Object[] rowData = {
                     entry.getDate(),
-                    entry.getPeriod2(),
+                    entry.getPeriod1(),
                     entry.getGroup1(),
-                    entry.getPeriod3or6(),
+                    entry.getPeriod2(),
                     entry.getGroup2(),
-                    entry.getPeriod8(),
+                    entry.getPeriod3(),
                     entry.getGroup3(),
-                    entry.getPeriod9(),
+                    entry.getPeriod4(),
                     entry.getGroup4()
             };
             model.addRow(rowData);
