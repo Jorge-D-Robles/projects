@@ -453,88 +453,118 @@ public class MusicalLessonScheduler {
 
 
     public class TableRowTransferHandler extends TransferHandler {
+        // A custom DataFlavor to manage the type of data being transferred. Here it's an Integer representing the row index.
         private final DataFlavor localObjectFlavor = new DataFlavor(Integer.class, "Integer Row Index");
         private JTable table = null;
 
+        // Constructor that takes a JTable. This handler will be associated with this table.
         public TableRowTransferHandler(JTable table) {
             this.table = table;
         }
 
+        // Called to create a Transferable object when a drag starts.
         @Override
         protected Transferable createTransferable(JComponent c) {
-            assert (c == table);
+            assert (c == table); // Ensure that the component is the table.
+            // Return a new Transferable implementation where getTransferData will return the selected row index.
             return new Transferable() {
                 @Override
                 public DataFlavor[] getTransferDataFlavors() {
+                    // Return the array of supported data flavors (types); in this case, just the custom row index flavor.
                     return new DataFlavor[]{localObjectFlavor};
                 }
 
                 @Override
                 public boolean isDataFlavorSupported(DataFlavor flavor) {
+                    // Check if the data flavor is supported (i.e., if it matches our custom flavor).
                     return localObjectFlavor.equals(flavor);
                 }
 
                 @Override
                 public Object getTransferData(DataFlavor flavor) {
+                    // Return the data being transferred; here, it's the index of the selected row.
                     return table.getSelectedRow();
                 }
             };
         }
 
+        // Method to determine if the component can accept the data being transferred.
         @Override
         public boolean canImport(TransferSupport info) {
+            // Check if the component in the TransferSupport is the table and if the data flavor is supported.
             boolean b = info.getComponent() == table && info.isDrop() && info.isDataFlavorSupported(localObjectFlavor);
+            // Change the cursor to indicate if the data can be dropped here.
             table.setCursor(b ? DragSource.DefaultMoveDrop : DragSource.DefaultMoveNoDrop);
             return b;
         }
 
+        // Specify the actions supported by this handler; in this case, moving of rows.
         @Override
         public int getSourceActions(JComponent c) {
             return TransferHandler.MOVE;
         }
 
+        // Method to handle data import when a drop occurs.
         @Override
         public boolean importData(TransferSupport info) {
+            // First, check if the data can be imported into this component.
             if (!canImport(info)) {
                 return false;
             }
 
+            // Get the JTable component where the drop event occurred.
             JTable target = (JTable) info.getComponent();
+            // Get the drop location details within the table.
             JTable.DropLocation dl = (JTable.DropLocation) info.getDropLocation();
+            // Determine the row index at the drop location.
             int index = dl.getRow();
+            // Get the total row count of the table model.
             int max = table.getModel().getRowCount();
+            // Ensure the index is within the valid range of the table's rows.
             if (index < 0 || index > max) {
                 index = max;
             }
 
+            // Initialize a variable to store the index of the row being dragged.
             int rowFrom = -1;
             try {
+                // Attempt to retrieve the dragged row index from the Transferable object.
                 rowFrom = (Integer) info.getTransferable().getTransferData(localObjectFlavor);
             } catch (Exception e) {
+                // In case of any exception, print the stack trace for debugging.
                 e.printStackTrace();
             }
 
-            // Check if we are moving down in the table
+            // Adjust the drop index if moving a row downwards in the table.
+            // This compensates for the change in indices as a row is moved.
             if (rowFrom != -1 && rowFrom < index) {
                 index--;
             }
 
+            // Perform the row move operation if the dragged row is different from the drop index.
             if (rowFrom != -1 && rowFrom != index) {
+                // Move the row in the table model.
                 ((DefaultTableModel) table.getModel()).moveRow(rowFrom, rowFrom, index);
+                // Adjust the index for selection if needed.
                 if (index > rowFrom && index < table.getRowCount() - 1) {
                     index--;
                 }
+                // Update the table selection to reflect the new position of the moved row.
                 target.getSelectionModel().addSelectionInterval(index, index);
                 return true;
             }
 
+            // Return false if no valid move operation was performed.
             return false;
         }
 
 
+
+        // Method called after the transfer is complete.
         @Override
         protected void exportDone(JComponent c, Transferable t, int act) {
             if (act == TransferHandler.MOVE) {
+                // Reset the cursor to the default cursor once the drag-and-drop operation is complete.
                 table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             }
         }
