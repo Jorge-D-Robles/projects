@@ -6,6 +6,9 @@ import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.dnd.DragSource;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -359,6 +362,9 @@ public class MusicalLessonScheduler {
         }
         // Create a table with the table model and add it to a scroll pane.
         JTable table = new JTable(model);
+        table.setDragEnabled(true);
+        table.setDropMode(DropMode.INSERT_ROWS);
+        table.setTransferHandler(new TableRowTransferHandler(table));
         JScrollPane scrollPane = new JScrollPane(table);
 
         // Create a frame to display the schedule.
@@ -443,5 +449,96 @@ public class MusicalLessonScheduler {
             e.printStackTrace();
         }
     }
+
+
+
+    public class TableRowTransferHandler extends TransferHandler {
+        private final DataFlavor localObjectFlavor = new DataFlavor(Integer.class, "Integer Row Index");
+        private JTable table = null;
+
+        public TableRowTransferHandler(JTable table) {
+            this.table = table;
+        }
+
+        @Override
+        protected Transferable createTransferable(JComponent c) {
+            assert (c == table);
+            return new Transferable() {
+                @Override
+                public DataFlavor[] getTransferDataFlavors() {
+                    return new DataFlavor[]{localObjectFlavor};
+                }
+
+                @Override
+                public boolean isDataFlavorSupported(DataFlavor flavor) {
+                    return localObjectFlavor.equals(flavor);
+                }
+
+                @Override
+                public Object getTransferData(DataFlavor flavor) {
+                    return table.getSelectedRow();
+                }
+            };
+        }
+
+        @Override
+        public boolean canImport(TransferSupport info) {
+            boolean b = info.getComponent() == table && info.isDrop() && info.isDataFlavorSupported(localObjectFlavor);
+            table.setCursor(b ? DragSource.DefaultMoveDrop : DragSource.DefaultMoveNoDrop);
+            return b;
+        }
+
+        @Override
+        public int getSourceActions(JComponent c) {
+            return TransferHandler.MOVE;
+        }
+
+        @Override
+        public boolean importData(TransferSupport info) {
+            if (!canImport(info)) {
+                return false;
+            }
+
+            JTable target = (JTable) info.getComponent();
+            JTable.DropLocation dl = (JTable.DropLocation) info.getDropLocation();
+            int index = dl.getRow();
+            int max = table.getModel().getRowCount();
+            if (index < 0 || index > max) {
+                index = max;
+            }
+
+            int rowFrom = -1;
+            try {
+                rowFrom = (Integer) info.getTransferable().getTransferData(localObjectFlavor);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // Check if we are moving down in the table
+            if (rowFrom != -1 && rowFrom < index) {
+                index--;
+            }
+
+            if (rowFrom != -1 && rowFrom != index) {
+                ((DefaultTableModel) table.getModel()).moveRow(rowFrom, rowFrom, index);
+                if (index > rowFrom && index < table.getRowCount() - 1) {
+                    index--;
+                }
+                target.getSelectionModel().addSelectionInterval(index, index);
+                return true;
+            }
+
+            return false;
+        }
+
+
+        @Override
+        protected void exportDone(JComponent c, Transferable t, int act) {
+            if (act == TransferHandler.MOVE) {
+                table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+            }
+        }
+    }
+
 
 }
