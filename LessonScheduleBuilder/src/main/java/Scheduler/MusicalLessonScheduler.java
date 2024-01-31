@@ -6,6 +6,9 @@ import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.dnd.DragSource;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -20,6 +23,12 @@ import java.util.List;
 
 public class MusicalLessonScheduler {
     private static List<List<String>> allGroups;
+    private static LocalDate startDate;
+    private static int dayCycle;
+    private static int weeks;
+    private static List<LocalDate> daysOff;
+    private static boolean customSchedule;
+
     // Define a date format pattern for LocalDate parsing and formatting.
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy MM dd");
 
@@ -37,7 +46,7 @@ public class MusicalLessonScheduler {
 
     private void createAndShowGUI() {
         // Create the main frame and set its properties.
-        JFrame frame = new JFrame("Musical Lesson Scheduler by Jorge Robles");
+        JFrame frame = new JFrame("Musical Lesson Scheduler by Jorge Robles Version Jan 2024");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(new Dimension(800, 600));
         frame.setLayout(new BorderLayout());
@@ -83,11 +92,11 @@ public class MusicalLessonScheduler {
         startButton.addActionListener(e -> {
             try {
                 // Parse user inputs.
-                LocalDate startDate = LocalDate.parse(startDateField.getText(), DATE_FORMAT);
-                int dayCycle = Integer.parseInt(dayCycleField.getText());
-                int weeks = Integer.parseInt(weeksField.getText());
-                List<LocalDate> daysOff = daysOffPanel.getDaysOff();
-                boolean customSchedule = customScheduleCheckbox.isSelected();
+                startDate = LocalDate.parse(startDateField.getText(), DATE_FORMAT);
+                dayCycle = Integer.parseInt(dayCycleField.getText());
+                weeks = Integer.parseInt(weeksField.getText());
+                daysOff = daysOffPanel.getDaysOff();
+                customSchedule = customScheduleCheckbox.isSelected();
 
                 // Validate user inputs.
                 if (dayCycle != 1 && dayCycle != 2) {
@@ -114,7 +123,9 @@ public class MusicalLessonScheduler {
 
                 // Create a ScheduleBuilder object with the user inputs and generate the
                 // schedule.
+
                 ScheduleBuilder scheduleBuilder = new ScheduleBuilder(startDate, dayCycle, daysOff, weeks, customSchedule, allGroups);
+
                 List<ScheduleEntry> schedule = scheduleBuilder.buildSchedule();
 
                 // Display the generated schedule in a new window.
@@ -324,27 +335,36 @@ public class MusicalLessonScheduler {
 
     // Method to display the generated schedule in a new window.
     private void displaySchedule(List<ScheduleEntry> schedule) {
-        String[] columnNames = { "Date", "Period 2", "Group 1", "Period 3/6", "Group 2", "Period 8", "Group 3",
-                "Period 9", "Group 4" };
+        String[] columnNames = { "Date", "Period", "Group 1", "Period", "Group 2", "Period", "Group 3",
+                "Period", "Group 4" };
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         // Add the schedule entries to the table model.
+        model.addRow(new Object[] { "Note:", "Pd 1 = 6", "Pd 3 = 8", "Pd 4 = 4", "Pd 9 = 9", "when", "swapping", "day 1", "to day 2" });
+        int counter = -1;
         for (ScheduleEntry entry : schedule) {
+            counter++;
+            if (counter % 5 == 0) {
+                model.addRow(new Object[] { "", "", "", "", "", "", "", "", "" });
+            }
             Object[] rowData = {
                     entry.getDate(),
-                    entry.getPeriod2(),
+                    entry.getPeriod1(),
                     entry.getGroup1(),
-                    entry.getPeriod3or6(),
+                    entry.getPeriod2(),
                     entry.getGroup2(),
-                    entry.getPeriod8(),
+                    entry.getPeriod3(),
                     entry.getGroup3(),
-                    entry.getPeriod9(),
+                    entry.getPeriod4(),
                     entry.getGroup4()
             };
             model.addRow(rowData);
         }
         // Create a table with the table model and add it to a scroll pane.
         JTable table = new JTable(model);
+        table.setDragEnabled(true);
+        table.setDropMode(DropMode.INSERT_ROWS);
+        table.setTransferHandler(new TableRowTransferHandler(table));
         JScrollPane scrollPane = new JScrollPane(table);
 
         // Create a frame to display the schedule.
@@ -353,6 +373,12 @@ public class MusicalLessonScheduler {
         frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
         frame.setPreferredSize(new Dimension(1100, 800));
 
+        // Create a reroll button to reroll schedule.
+        JButton ReRollButton = new JButton("Re-Roll");
+        ReRollButton.addActionListener(e -> {
+            frame.dispose();
+            reRollSchedule(new ScheduleBuilder(startDate, dayCycle, daysOff, weeks, customSchedule, allGroups));
+        });
         // Create a save button to export the schedule to a CSV file.
         JButton saveButton = new JButton("Save to CSV");
         saveButton.addActionListener(e -> {
@@ -374,6 +400,7 @@ public class MusicalLessonScheduler {
 
         // Add the save button to the bottom panel of the frame.
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        bottomPanel.add(ReRollButton);
         bottomPanel.add(saveButton);
         frame.getContentPane().add(bottomPanel, BorderLayout.SOUTH);
 
@@ -382,6 +409,13 @@ public class MusicalLessonScheduler {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
+
+    // Create a re-roll button to re-roll the schedule.
+    private void reRollSchedule(ScheduleBuilder newBuilder) {
+        List<ScheduleEntry> newSched = newBuilder.buildSchedule();
+        displaySchedule(newSched);
+    }
+
 
     // Method to export the schedule table to a CSV file.
     private void exportToCSV(JTable table, File file) {
@@ -415,5 +449,126 @@ public class MusicalLessonScheduler {
             e.printStackTrace();
         }
     }
+
+
+
+    public class TableRowTransferHandler extends TransferHandler {
+        // A custom DataFlavor to manage the type of data being transferred. Here it's an Integer representing the row index.
+        private final DataFlavor localObjectFlavor = new DataFlavor(Integer.class, "Integer Row Index");
+        private JTable table = null;
+
+        // Constructor that takes a JTable. This handler will be associated with this table.
+        public TableRowTransferHandler(JTable table) {
+            this.table = table;
+        }
+
+        // Called to create a Transferable object when a drag starts.
+        @Override
+        protected Transferable createTransferable(JComponent c) {
+            assert (c == table); // Ensure that the component is the table.
+            // Return a new Transferable implementation where getTransferData will return the selected row index.
+            return new Transferable() {
+                @Override
+                public DataFlavor[] getTransferDataFlavors() {
+                    // Return the array of supported data flavors (types); in this case, just the custom row index flavor.
+                    return new DataFlavor[]{localObjectFlavor};
+                }
+
+                @Override
+                public boolean isDataFlavorSupported(DataFlavor flavor) {
+                    // Check if the data flavor is supported (i.e., if it matches our custom flavor).
+                    return localObjectFlavor.equals(flavor);
+                }
+
+                @Override
+                public Object getTransferData(DataFlavor flavor) {
+                    // Return the data being transferred; here, it's the index of the selected row.
+                    return table.getSelectedRow();
+                }
+            };
+        }
+
+        // Method to determine if the component can accept the data being transferred.
+        @Override
+        public boolean canImport(TransferSupport info) {
+            // Check if the component in the TransferSupport is the table and if the data flavor is supported.
+            boolean b = info.getComponent() == table && info.isDrop() && info.isDataFlavorSupported(localObjectFlavor);
+            // Change the cursor to indicate if the data can be dropped here.
+            table.setCursor(b ? DragSource.DefaultMoveDrop : DragSource.DefaultMoveNoDrop);
+            return b;
+        }
+
+        // Specify the actions supported by this handler; in this case, moving of rows.
+        @Override
+        public int getSourceActions(JComponent c) {
+            return TransferHandler.MOVE;
+        }
+
+        // Method to handle data import when a drop occurs.
+        @Override
+        public boolean importData(TransferSupport info) {
+            // First, check if the data can be imported into this component.
+            if (!canImport(info)) {
+                return false;
+            }
+
+            // Get the JTable component where the drop event occurred.
+            JTable target = (JTable) info.getComponent();
+            // Get the drop location details within the table.
+            JTable.DropLocation dl = (JTable.DropLocation) info.getDropLocation();
+            // Determine the row index at the drop location.
+            int index = dl.getRow();
+            // Get the total row count of the table model.
+            int max = table.getModel().getRowCount();
+            // Ensure the index is within the valid range of the table's rows.
+            if (index < 0 || index > max) {
+                index = max;
+            }
+
+            // Initialize a variable to store the index of the row being dragged.
+            int rowFrom = -1;
+            try {
+                // Attempt to retrieve the dragged row index from the Transferable object.
+                rowFrom = (Integer) info.getTransferable().getTransferData(localObjectFlavor);
+            } catch (Exception e) {
+                // In case of any exception, print the stack trace for debugging.
+                e.printStackTrace();
+            }
+
+            // Adjust the drop index if moving a row downwards in the table.
+            // This compensates for the change in indices as a row is moved.
+            if (rowFrom != -1 && rowFrom < index) {
+                index--;
+            }
+
+            // Perform the row move operation if the dragged row is different from the drop index.
+            if (rowFrom != -1 && rowFrom != index) {
+                // Move the row in the table model.
+                ((DefaultTableModel) table.getModel()).moveRow(rowFrom, rowFrom, index);
+                // Adjust the index for selection if needed.
+                if (index > rowFrom && index < table.getRowCount() - 1) {
+                    index--;
+                }
+                // Update the table selection to reflect the new position of the moved row.
+                target.getSelectionModel().addSelectionInterval(index, index);
+                return true;
+            }
+
+            // Return false if no valid move operation was performed.
+            return false;
+        }
+
+
+
+        // Method called after the transfer is complete.
+        @Override
+        protected void exportDone(JComponent c, Transferable t, int act) {
+            if (act == TransferHandler.MOVE) {
+                // Reset the cursor to the default cursor once the drag-and-drop operation is complete.
+                table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+            }
+        }
+    }
+
 
 }
