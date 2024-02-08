@@ -10,7 +10,7 @@ The Schedule Maker is a program designed to solve the unique scheduling problem 
 
 The Java version of the Schedule Maker incorporates Object-Oriented Programming (OOP) principles to enhance modularity, readability, and maintainability and implements a complete Graphical User Interface (GUI). The Python version, on the other hand, is a more straightforward implementation using only functions and command-line inputs.
 
-### CUNYFirst Schedule Builder Automation
+### Web Automation Project
 
 This script automates the process of checking for available classes in the user's shopping cart on CUNYFirst's Schedule Builder and registering for them. It uses Selenium WebDriver for browser automation and handles various edge cases and errors. The script assumes that the user has a CUNYFirst account and knows their login credentials.
 
