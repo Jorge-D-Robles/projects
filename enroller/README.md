@@ -1,14 +1,14 @@
-# CUNYFirst Schedule Enroller
+# QC Schedule Enroller
 
 ## Note: This script is partially outdated. Minor edits (documented in code) heading into the right semester for the schedule are outdated as this was written for Fall 2023 only. If you managed to modify the script to account for the correct date, please submit a pull request and I'll update it.
 
-The `enroller.py` Python script automates the process of checking for available classes on CUNYFirst's Schedule Builder and swapping them with the current schedule. It uses Selenium WebDriver for browser automation, and Twilio for sending text message notifications. The script utilizes a human-like approach to traverse through the site and enroll for classes accordingly.
+The `enroller.py` Python script automates the process of checking for available classes on Schedule Builder and swapping them with the current schedule. It uses Selenium WebDriver for browser automation, and Twilio for sending text message notifications. The script utilizes a human-like approach to traverse through the site and enroll for classes accordingly.
 
 ## How it works
 
 1. The script initializes the Selenium WebDriver with a custom user agent.
-2. It prompts the user for their CUNYFirst login credentials and the delay between schedule checks (in seconds).
-3. The script navigates to the CUNYFirst login page and logs in using the provided credentials.
+2. It prompts the user for their QC login credentials and the delay between schedule checks (in seconds).
+3. The script navigates to the QC login page and logs in using the provided credentials.
 4. It then navigates to the Student Center and clicks on the Schedule Builder link.
 5. The script selects the 2023 Fall term and waits for the schedule to load.
 6. It switches the view to display full classes.
@@ -20,11 +20,11 @@ The script handles cases where it cannot find elements on the page (e.g., Studen
 
 ## Assumptions and limitations
 
-This script assumes that the user has a CUNYFirst account and knows their login credentials. The script uses hardcoded CSS selectors and XPaths to locate elements on the page, so if the website's structure changes, the script may break. The script currently selects the 2023 Fall term by executing a JavaScript function. If the term or function changes, the script may need to be updated. Delays (using time.sleep()) have been added throughout the script to account for loading times. However, these delays may not be sufficient for slower internet connections, and the script may need to be adjusted accordingly.
+This script assumes that the user has a QC account and knows their login credentials. The script uses hardcoded CSS selectors and XPaths to locate elements on the page, so if the website's structure changes, the script may break. The script currently selects the 2023 Fall term by executing a JavaScript function. If the term or function changes, the script may need to be updated. Delays (using time.sleep()) have been added throughout the script to account for loading times. However, these delays may not be sufficient for slower internet connections, and the script may need to be adjusted accordingly.
 
 ## Usage
 
-1. Add your desired schedule to the first favorite slot on CUNYFirst's Schedule Builder before running the script. The script will attempt to match your current schedule with this favorite schedule and enroll or swap the classes that don't match as they open up.
+1. Add your desired schedule to the first favorite slot on Schedule Builder before running the script. The script will attempt to match your current schedule with this favorite schedule and enroll or swap the classes that don't match as they open up.
 2. Install the required dependencies: `pip install selenium webdriver-manager twilio requests`
 3. Run the script: `python3 enroller.py`
 4. Enter your CUNYFirst login credentials and the delay between schedule checks when prompted.
