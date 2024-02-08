@@ -1,4 +1,4 @@
-# QC Schedule Enroller
+# Web Automation Project
 
 ## Note: This script is partially outdated. Minor edits (documented in code) heading into the right semester for the schedule are outdated as this was written for Fall 2023 only. If you managed to modify the script to account for the correct date, please submit a pull request and I'll update it.
 
