@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  /* Add more styles as needed */
+/* run the following in terminal before running css */
+/* npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch */

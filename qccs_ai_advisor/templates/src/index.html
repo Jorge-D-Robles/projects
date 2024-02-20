@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="../../static/css/output.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="bg-white">
+
+      <header class="absolute inset-x-0 top-0 z-50">
+        <nav
+          class="flex items-center justify-between p-6 lg:px-8"
+          aria-label="Global"
+        >
+          <div class="flex lg:flex-1">
+            <a href="https://www.qc.cuny.edu" target="_blank" class="-m-1.5 p-1.5">
+              <span class="sr-only">QCCS AI Advisor</span>
+              <img
+                class="h-13 w-auto"
+                src="https://www.qc.cuny.edu/communications/wp-content/uploads/sites/21/2023/08/QC_CUNY_logo_w_bg-01.png"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="flex lg:hidden">
+            <button
+              type="button"
+              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="hidden lg:flex lg:gap-x-12">
+
+            <a href="https://www.cs.qc.cuny.edu/index-1.html" target="_blank" class="text-sm font-semibold leading-6 text-gray-900"
+              >QC Computer Science Website</a
+            >
+            <a href="https://discord.gg/yz8WsZKM6z" target="_blank" class="text-sm font-semibold leading-6 text-gray-900"
+              >Code For All Discord</a
+            >
+            <a href="/about" class="text-sm font-semibold leading-6 text-gray-900"
+              >About Us</a
+            >
+          </div>
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+              >Log in <span aria-hidden="true">&rarr;</span></a
+            > -->
+          </div>
+        </nav>
+
+        </header>
+
+        <div class="relative isolate px-6 pt-14 lg:px-8">
+            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                    style="
+              clip-path: polygon(
+                74.1% 44.1%,
+                100% 61.6%,
+                97.5% 26.9%,
+                85.5% 0.1%,
+                80.7% 2%,
+                72.5% 32.5%,
+                60.2% 62.4%,
+                52.4% 68.1%,
+                47.5% 58.3%,
+                45.2% 34.5%,
+                27.5% 76.7%,
+                0.1% 64.9%,
+                17.9% 100%,
+                27.6% 76.8%,
+                76.1% 97.7%,
+                74.1% 44.1%
+              );
+
+            "
+          ></div>
+        </div>
+        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56" id="hero">
+          <div class="hidden sm:mb-8 sm:flex sm:justify-center" id="readMore">
+            <div
+              class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+            >
+              Read our dev post for this project!
+              <a href="https://devpost.com/software/queens-college-computer-science-ai-advisor" target="_blank" class="font-semibold text-red-600"
+                ><span class="absolute inset-0" aria-hidden="true"></span>Read
+                more <span aria-hidden="true">&rarr;</span></a
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <h1
+              class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl" id="title"
+            >
+              Navigate Your Computer Science Degree with Precision.
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-gray-600" id="innerPara">
+               Our AI-Powered Advisor harnesses the latest in OpenAI technology to tailor your academic journey at Queens College, ensuring a seamless path through prerequisites and course schedules.
+            </p>
+            <div class="mt-10 flex items-center justify-center gap-x-6">
+              <a
+                href="#"
+                class="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="getStarted"
+                >Get started</a
+              >
+
+              <!-- Trigger Button -->
+              <div class="relative z-10">
+                <button type="button" class="modal-open inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900" id="modal-trigger" aria-expanded="false">
+                  <span>Learn more</span>
+                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Modal Overlay -->
+              <div class="fixed inset-0 hidden bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modalOverlay"></div>
+
+              <!-- Modal -->
+              <div class="hidden fixed inset-0 z-20 flex items-center justify-center overflow-hidden" id="modal">
+                <div class="relative mx-auto w-full max-w-md p-4 bg-white rounded-2xl shadow-lg transform transition-all">
+                  <!-- Modal content here -->
+                  <div class="p-4">
+                    <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                      <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <a href="#" class="font-semibold text-gray-900">
+                          Artificial Intelligence
+                          <span class="absolute inset-0"></span>
+                        </a>
+                        <p class="mt-1 text-gray-600">Harnessing OpenAI's API, we use AI to personalize a plan for you.</p>
+                      </div>
+                    </div>
+                    <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                      <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                        </svg>
+                      </div>
+                      <div>
+                        <a href="#" class="font-semibold text-gray-900">
+                          Updated Data
+                          <span class="absolute inset-0"></span>
+                        </a>
+                        <p class="mt-1 text-gray-600">We use the most up-to-date information for course professors, grades, and more.</p>
+                      </div>
+                    </div>
+                    <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                      <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                        </svg>
+                      </div>
+                      <div>
+                        <a href="#" class="font-semibold text-gray-900">
+                          Security
+                          <span class="absolute inset-0"></span>
+                        </a>
+                        <p class="mt-1 text-gray-600">Your data will be safe and secure. We do not store or share any data provided in this application.</p>
+                      </div>
+                    </div>
+                    <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                      <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <a href="#" class="font-semibold text-gray-900 text-center">
+                            Integrations
+                          <span class="absolute inset-0"></span>
+                        </a>
+                        <p class="mt-1 text-gray-600">Connect with third-party tools such as RateMyProfessors, CUNYFirst, and others.</p>
+                      </div>
+                    </div>
+                    <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                      <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>
+                      </div>
+                      <div>
+                        <a href="#" class="font-semibold text-gray-900">
+                          Customization
+                          <span class="absolute inset-0"></span>
+                        </a>
+                        <p class="mt-1 text-gray-600">Each plan is completely unique for each student, taking all types of learners into account.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                    <!-- Modal actions -->
+                  </div>
+                  <!-- Close button -->
+                  <div class="absolute top-0 right-0 pt-4 pr-4">
+                    <button class="modal-close p-6 text-gray-400 hover:text-gray-500">
+                      <span class="sr-only">Close</span>
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                    style="
+              clip-path: polygon(
+                74.1% 44.1%,
+                100% 61.6%,
+                97.5% 26.9%,
+                85.5% 0.1%,
+                80.7% 2%,
+                72.5% 32.5%,
+                60.2% 62.4%,
+                52.4% 68.1%,
+                47.5% 58.3%,
+                45.2% 34.5%,
+                27.5% 76.7%,
+                0.1% 64.9%,
+                17.9% 100%,
+                27.6% 76.8%,
+                76.1% 97.7%,
+                74.1% 44.1%
+              );
+            "></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../static/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
+</body>
+</html>

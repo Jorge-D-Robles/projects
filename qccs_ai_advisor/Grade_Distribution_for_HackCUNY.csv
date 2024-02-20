@@ -1,0 +1,367 @@
+SUBJECT,NBR,COURSE NAME,PROF,TOTAL,A+,A,A-,B+,B,B-,C+,C,C-,D,F,W,AVG GPA
+CSCI,111,Intro Algorithmic Problem Solv,"TSE, C",136,0,9,7,2,5,16,13,8,0,0,15,57,2.301
+CSCI,111,Intro Algorithmic Problem Solv,"CHYN, X",163,2,12,4,8,15,9,9,13,3,3,21,62,2.235
+CSCI,111,Intro Algorithmic Problem Solv,"CHYN, X",236,1,7,7,11,21,12,22,10,15,19,29,82,1.979
+CSCI,211,Object-Oriented Program in C++,"WAXMAN, J",143,13,8,9,3,16,17,9,16,0,8,21,22,2.348
+CSCI,211,Object-Oriented Program in C++,"WAXMAN, J",211,18,7,6,10,17,30,8,28,0,18,33,36,2.169
+CSCI,211,Object-Oriented Program in C++,"ALAYEV, Y",12,0,0,0,1,0,0,1,0,2,3,1,4,1.5
+CSCI,212,Object-Oriented Prog in Java,"LORD, K",150,11,11,10,11,16,6,11,8,6,9,11,40,2.6
+CSCI,212,Object-Oriented Prog in Java,"STEINBERG, O",85,1,7,8,10,1,4,5,4,1,3,11,29,2.411
+CSCI,220,Discrete Structures,"KAHROBAEI, D",35,4,10,6,1,3,1,0,0,2,0,0,7,3.578
+CSCI,220,Discrete Structures,"KAHROBAEI, D",35,4,11,3,4,4,0,1,1,0,0,1,6,3.469
+CSCI,220,Discrete Structures,"TAO, X",30,0,2,5,2,4,7,2,2,2,1,0,3,2.852
+CSCI,220,Discrete Structures,"KONG, T",22,3,3,1,2,1,1,0,1,0,4,3,2,2.421
+CSCI,220,Discrete Structures,"GRYAK, J",35,1,1,1,0,4,6,11,3,0,0,3,5,2.373
+CSCI,220,Discrete Structures,"GRYAK, J",27,2,1,0,0,1,5,2,4,0,0,5,7,2.055
+CSCI,220,Discrete Structures,"KONG, T",23,0,1,1,0,0,0,4,3,0,0,3,10,1.908
+CSCI,240,Computer Org & Assembly Lang,"YEH, J",40,3,7,9,1,2,3,4,2,1,0,4,4,2.933
+CSCI,240,Computer Org & Assembly Lang,"YEH, J",40,3,1,5,5,7,1,3,3,3,0,3,6,2.726
+CSCI,240,Computer Org & Assembly Lang,"YEH, J",40,2,5,6,1,5,4,3,2,3,0,4,5,2.723
+CSCI,240,Computer Org & Assembly Lang,"TAO, X",32,0,3,2,5,6,2,2,6,2,0,2,2,2.643
+CSCI,240,Computer Org & Assembly Lang,"TAO, X",32,0,1,1,3,5,4,3,6,1,0,2,6,2.462
+CSCI,240,Computer Org & Assembly Lang,"FLUTURE, S",64,1,3,1,0,1,4,8,2,0,0,10,34,1.863
+CSCI,313,Data Structures,"TAO, X",32,0,3,3,4,7,1,4,3,0,0,6,1,2.426
+CSCI,313,Data Structures,"MITCHELL, T",20,0,1,1,0,2,2,2,2,3,1,0,6,2.414
+CSCI,313,Data Structures,"STEINBERG, O",32,1,0,2,3,5,8,2,4,0,0,5,2,2.35
+CSCI,313,Data Structures,"MITCHELL, T",27,1,1,3,2,0,5,0,1,4,1,3,6,2.333
+CSCI,313,Data Structures,"MITCHELL, T",25,1,2,1,3,1,2,1,1,1,0,5,7,2.222
+CSCI,313,Data Structures,"SVADLENKA, J",14,2,0,0,1,0,1,0,2,0,1,2,5,2.111
+CSCI,313,Data Structures,"STEINBERG, O",32,1,6,4,2,0,2,1,3,0,0,11,2,2.103
+CSCI,316,Principles of Programming Lang,"SMITH-THOMPSON, A",33,3,1,3,0,3,3,6,5,0,2,1,5,2.593
+CSCI,316,Principles of Programming Lang,"KONG, T",51,1,4,0,2,6,10,4,3,0,1,10,10,2.141
+CSCI,316,Principles of Programming Lang,"SMITH-THOMPSON, A",33,0,0,0,1,5,1,5,12,1,3,2,3,2.04
+CSCI,316,Principles of Programming Lang,"SMITH-THOMPSON, A",33,0,1,2,1,3,0,7,6,0,4,5,2,1.924
+CSCI,316,Principles of Programming Lang,"SVITAK, J",31,0,1,1,1,1,2,0,2,3,8,2,10,1.738
+CSCI,316,Principles of Programming Lang,"SVITAK, J",53,0,0,0,1,1,2,3,5,5,18,4,13,1.413
+CSCI,320,Theory of Computation,"OBRENIC, B",79,11,6,3,4,15,4,6,7,0,1,10,12,2.64
+CSCI,320,Theory of Computation,"OBRENIC, B",108,6,7,3,1,15,10,6,21,0,2,11,26,2.393
+CSCI,320,Theory of Computation,"BOKLAN, K",44,0,1,0,0,0,0,0,4,0,0,10,29,0.8
+CSCI,323,Design & Analysis Algorithms,"KAHROBAEI, D",35,6,14,3,1,2,1,0,2,0,0,0,6,3.693
+CSCI,323,Design & Analysis Algorithms,"PHILLIPS, T",27,3,1,1,3,4,0,0,2,0,0,4,9,2.533
+CSCI,323,Design & Analysis Algorithms,"PHILLIPS, T",26,3,2,2,2,2,1,0,1,0,0,5,8,2.483
+CSCI,323,Design & Analysis Algorithms,"CHYN, X",35,0,1,3,3,5,3,2,5,0,0,5,8,2.322
+CSCI,323,Design & Analysis Algorithms,"BROWN, T",30,1,1,1,0,2,1,1,8,0,0,9,6,1.613
+CSCI,331,Database Systems,"SY, B",24,0,1,1,2,3,2,0,1,2,0,0,12,2.842
+CSCI,331,Database Systems,"OBRENIC, B",60,3,1,2,4,6,5,6,13,0,0,3,17,2.509
+CSCI,331,Database Systems,"CHYN, X",31,1,3,2,1,5,3,4,4,0,0,4,4,2.481
+CSCI,331,Database Systems,"LEAVITT, D",36,0,3,2,1,7,1,4,9,0,4,1,4,2.425
+CSCI,331,Database Systems,"HELLER, P",38,0,2,0,4,1,2,3,6,0,0,3,17,2.31
+CSCI,335,Information Org and Retrieval,"GOLDBERG, R",32,0,3,2,3,9,6,4,2,0,1,0,2,2.89
+CSCI,340,Operating Systems Principles,"SVADLENKA, J",37,1,3,4,3,3,1,1,7,0,1,1,11,2.788
+CSCI,340,Operating Systems Principles,"FLUTURE, S",35,1,2,1,1,2,5,3,6,0,0,0,13,2.733
+CSCI,340,Operating Systems Principles,"SMITH-THOMPSON, A",35,3,2,1,0,6,7,2,8,0,0,1,4,2.707
+CSCI,340,Operating Systems Principles,"SVADLENKA, J",27,2,0,2,2,1,2,1,2,0,3,0,12,2.647
+CSCI,340,Operating Systems Principles,"FLUTURE, S",35,1,0,3,0,1,3,6,4,0,0,2,14,2.4
+CSCI,340,Operating Systems Principles,"SVADLENKA, J",31,1,2,1,1,1,0,1,2,0,1,4,15,2.093
+CSCI,340,Operating Systems Principles,"RAHMAN, M",37,0,0,1,0,1,6,5,13,0,0,6,5,1.888
+CSCI,343,Computer Architecture,"FLUTURE, S",33,4,5,1,3,0,0,3,2,0,0,0,15,3.361
+CSCI,343,Computer Architecture,"UPADHYAY, V",35,3,5,1,1,4,3,2,7,0,0,1,8,2.878
+CSCI,343,Computer Architecture,"FLUTURE, S",42,1,1,3,4,3,4,3,2,0,0,1,20,2.864
+CSCI,343,Computer Architecture,"UPADHYAY, V",34,1,6,0,1,6,2,2,4,0,0,4,8,2.588
+CSCI,343,Computer Architecture,"SVITAK, J",35,0,1,1,0,2,3,2,7,4,6,2,7,1.9
+CSCI,343,Computer Architecture,"SVITAK, J",34,0,1,0,1,4,0,2,4,2,9,1,10,1.846
+CSCI,348,Data Communications,"RAHMAN, M",32,0,1,1,2,2,1,8,6,0,0,1,10,2.427
+CSCI,352,Cryptography,"BOKLAN, K",17,0,0,0,0,2,1,0,1,0,0,1,12,2.14
+CSCI,355,Internet and Web Technologies,"FRIED, M",40,0,9,2,4,6,4,4,3,2,3,1,2,2.816
+CSCI,355,Internet and Web Technologies,"LAW, R",31,1,2,5,2,1,2,3,3,0,0,4,8,2.539
+CSCI,355,Internet and Web Technologies,"LAW, R",36,2,3,1,1,1,3,1,1,0,3,6,14,2.064
+CSCI,355,Internet and Web Technologies,"LAW, R",31,2,2,1,2,0,1,2,4,0,0,11,6,1.664
+CSCI,370,Software Engineering,"GOLDBERG, R",33,0,5,3,3,5,2,6,1,0,0,1,7,2.969
+CSCI,370,Software Engineering,"GREENBERG, A",34,1,5,3,4,8,1,6,5,0,0,1,0,2.906
+CSCI,370,Software Engineering,"GREENBERG, A",32,0,4,2,7,4,3,6,3,0,0,1,1,2.88
+CSCI,370,Software Engineering,"TSAI, C",16,0,0,1,2,0,0,1,2,0,0,0,10,2.767
+CSCI,370,Software Engineering,"GREENBERG, A",32,0,3,4,6,5,2,2,3,0,0,4,2,2.676
+CSCI,370,Software Engineering,"ABREU, A",35,0,0,2,4,6,5,3,5,0,1,5,4,2.258
+CSCI,370,Software Engineering,"ABREU, A",35,0,0,0,3,2,4,5,7,1,5,3,5,1.963
+CSCI,381,VT: Special Topics in Comp Sci,"RODAY, R",36,6,11,10,5,3,1,0,0,0,0,0,0,3.7
+CSCI,381,VT: Special Topics in Comp Sci,"LI, J",32,0,5,5,7,4,4,2,2,0,0,1,2,3.1
+CSCI,381,VT: Special Topics in Comp Sci,"GOLDBERG, R",35,0,3,3,9,3,9,4,1,0,0,1,2,2.948
+CSCI,381,VT: Special Topics in Comp Sci,"PHILLIPS, T",26,3,3,2,2,2,3,2,2,0,0,2,5,2.89
+CSCI,381,VT: Special Topics in Comp Sci,"ROZOVSKAYA, A",31,1,1,1,2,2,1,2,2,0,0,1,18,2.738
+CSCI,381,VT: Special Topics in Comp Sci,"TSAI, C",16,0,1,4,0,1,0,1,3,0,0,1,5,2.736
+CSCI,381,VT: Special Topics in Comp Sci,"CESARETTI, P",20,0,0,2,4,1,1,4,4,0,0,0,4,2.719
+CSCI,381,VT: Special Topics in Comp Sci,"WAXMAN, J",40,5,1,4,4,1,1,0,5,0,6,6,7,2.233
+CSCI,381,VT: Special Topics in Comp Sci,"ROZOVSKAYA, A",35,0,2,0,1,2,3,3,2,0,0,6,16,1.911
+CSCI,381,VT: Special Topics in Comp Sci,"BROWN, T",21,0,0,0,1,3,0,0,6,0,0,6,5,1.519
+CSCI,111,Intro Algorithmic Problem Solv,"SCHLEY, R",236,10,30,14,8,22,8,17,25,8,13,22,49,2.494
+CSCI,111,Intro Algorithmic Problem Solv,"CHYN, X",239,0,19,10,8,39,14,11,8,0,23,26,75,2.269
+CSCI,111,Intro Algorithmic Problem Solv,"CHYN, X",240,0,21,11,7,28,22,7,13,0,23,26,68,2.255
+CSCI,112,Intro Algori Prob Solving Java,"CONNOR, T",13,6,2,1,1,1,1,0,0,0,0,0,1,3.725
+CSCI,211,Object-Oriented Program in C++,"WAXMAN, J",150,9,9,7,7,10,10,4,16,0,15,30,32,2.002
+CSCI,211,Object-Oriented Program in C++,"WAXMAN, J",105,5,5,4,3,4,11,2,9,0,15,25,22,1.735
+CSCI,211,Object-Oriented Program in C++,"ALAYEV, Y",16,0,1,0,0,0,0,0,1,0,1,2,11,1.4
+CSCI,212,Object-Oriented Prog in Java,"TSE, C",36,1,6,1,3,3,0,3,5,0,0,3,11,2.7
+CSCI,212,Object-Oriented Prog in Java,"LORD, K",161,5,6,11,11,13,13,10,12,9,9,21,39,2.22
+CSCI,212,Object-Oriented Prog in Java,"LORD, K",127,7,12,5,7,11,7,4,6,3,12,24,29,2.12
+CSCI,220,Discrete Structures,"KAHROBAEI, D",39,0,18,3,3,2,2,0,5,4,0,0,2,3.276
+CSCI,220,Discrete Structures,"KAHROBAEI, D",42,0,14,3,1,3,2,0,5,5,0,3,6,2.869
+CSCI,220,Discrete Structures,"CHYN, X",88,0,8,4,8,6,12,7,11,0,1,13,17,2.324
+CSCI,220,Discrete Structures,"CHYN, X",58,1,6,2,4,9,7,3,11,0,0,12,3,2.244
+CSCI,220,Discrete Structures,"CESARETTI, P",30,0,3,3,1,2,1,2,4,0,0,7,7,2.074
+CSCI,240,Computer Org & Assembly Lang,"YEH, J",45,2,7,3,4,7,7,3,3,3,0,2,4,2.883
+CSCI,240,Computer Org & Assembly Lang,"YEH, J",45,5,1,5,3,7,4,1,3,6,0,1,8,2.853
+CSCI,240,Computer Org & Assembly Lang,"YEH, J",45,0,4,3,4,5,5,7,2,4,0,4,7,2.518
+CSCI,240,Computer Org & Assembly Lang,"SVITAK, J",31,0,2,0,3,3,2,2,4,2,2,2,8,2.286
+CSCI,240,Computer Org & Assembly Lang,"SVITAK, J",26,0,2,3,1,3,0,1,4,0,4,2,6,2.285
+CSCI,240,Computer Org & Assembly Lang,"SVITAK, J",37,0,4,4,1,4,0,1,3,2,5,4,9,2.243
+CSCI,313,Data Structures,"TAO, X",39,9,6,2,8,5,3,0,0,0,0,4,2,3.159
+CSCI,313,Data Structures,"TAO, X",36,0,5,1,6,16,1,0,1,0,0,1,5,3.103
+CSCI,313,Data Structures,"TAO, X",24,2,2,2,1,6,1,0,0,0,0,6,4,2.37
+CSCI,313,Data Structures,"TSAI, C",10,1,0,0,1,0,0,0,1,0,0,1,6,2.325
+CSCI,313,Data Structures,"STEINBERG, O",31,3,2,0,4,1,3,3,3,3,6,2,1,2.277
+CSCI,313,Data Structures,"SMITH-THOMPSON, A",29,3,3,0,0,1,0,1,6,0,0,5,8,2.174
+CSCI,313,Data Structures,"STEINBERG, O",42,2,1,2,1,4,4,2,8,4,4,5,5,2.078
+CSCI,313,Data Structures,"SMITH-THOMPSON, A",25,0,2,0,0,1,1,1,6,0,0,3,11,2
+CSCI,316,Principles of Programming Lang,"SMITH-THOMPSON, A",35,0,5,0,2,9,6,4,6,0,0,0,1,2.844
+CSCI,316,Principles of Programming Lang,"KONG, T",35,3,6,1,3,3,3,1,4,0,1,4,5,2.69
+CSCI,316,Principles of Programming Lang,"KONG, T",35,1,1,3,3,4,3,1,3,0,1,5,9,2.336
+CSCI,316,Principles of Programming Lang,"SVITAK, J",28,0,0,1,0,5,1,1,3,2,7,2,6,1.823
+CSCI,316,Principles of Programming Lang,"SVITAK, J",30,0,0,0,2,1,1,2,4,2,6,3,9,1.633
+CSCI,316,Principles of Programming Lang,"KONG, T",61,0,5,0,2,4,3,3,4,0,2,23,13,1.383
+CSCI,320,Theory of Computation,"OBRENIC, B",86,2,11,2,7,11,10,7,12,0,0,15,9,2.371
+CSCI,320,Theory of Computation,"BOKLAN, K",37,1,2,0,0,0,0,0,2,0,0,2,30,2.286
+CSCI,320,Theory of Computation,"OBRENIC, B",109,0,6,0,4,19,9,6,19,0,1,24,21,1.947
+CSCI,320,Theory of Computation,"BOKLAN, K",28,0,1,0,0,0,1,0,3,0,0,4,19,1.411
+CSCI,323,Design & Analysis Algorithms,"TAO, X",30,7,5,7,3,3,1,0,2,0,0,0,2,3.554
+CSCI,323,Design & Analysis Algorithms,"PHILLIPS, T",18,1,0,4,1,0,1,1,3,0,0,1,6,2.758
+CSCI,323,Design & Analysis Algorithms,"PHILLIPS, T",25,2,2,1,0,2,2,0,1,0,0,4,11,2.364
+CSCI,323,Design & Analysis Algorithms,"BROWN, T",30,0,0,1,3,4,8,1,6,0,0,5,2,2.196
+CSCI,323,Design & Analysis Algorithms,"GOSWAMI, M",61,1,5,6,2,5,1,6,7,0,0,13,15,2.137
+CSCI,331,Database Systems,"STEINBERG, O",35,4,4,3,4,6,3,3,4,3,1,0,0,2.954
+CSCI,331,Database Systems,"STEINBERG, O",31,1,2,4,6,3,4,3,1,3,1,0,3,2.907
+CSCI,331,Database Systems,"HELLER, P",29,0,1,1,1,0,1,2,5,0,0,1,17,2.358
+CSCI,331,Database Systems,"LEAVITT, D",39,1,4,4,3,2,4,1,4,0,1,7,8,2.348
+CSCI,331,Database Systems,"OBRENIC, B",83,3,3,0,2,6,9,7,29,0,1,13,10,2.027
+CSCI,334,Data Mining and Warehousing,"SY, B",13,0,1,2,0,2,0,1,1,0,0,0,6,3.1
+CSCI,335,Information Org and Retrieval,"GOLDBERG, R",33,0,4,4,4,5,3,2,5,0,0,1,5,2.918
+CSCI,340,Operating Systems Principles,"SVADLENKA, J",33,2,3,1,1,3,3,2,1,1,0,0,14,3.082
+CSCI,340,Operating Systems Principles,"SVADLENKA, J",22,1,2,0,3,2,1,0,3,0,1,0,9,2.892
+CSCI,340,Operating Systems Principles,"SVADLENKA, J",37,1,3,3,2,1,5,4,1,1,1,2,13,2.671
+CSCI,340,Operating Systems Principles,"SVADLENKA, J",29,2,2,1,3,3,2,1,1,0,2,2,10,2.647
+CSCI,340,Operating Systems Principles,"FLUTURE, S",37,0,0,4,4,3,7,6,3,0,0,2,8,2.61
+CSCI,340,Operating Systems Principles,"SVADLENKA, J",33,2,0,1,0,2,3,3,2,2,4,1,13,2.205
+CSCI,340,Operating Systems Principles,"FLUTURE, S",37,0,1,2,0,0,4,5,7,0,0,3,13,2.168
+CSCI,343,Computer Architecture,"RAHMAN, M",34,2,2,6,3,9,5,5,1,0,0,1,0,3.003
+CSCI,343,Computer Architecture,"FLUTURE, S",31,2,4,0,0,2,1,2,2,0,0,2,16,2.753
+CSCI,343,Computer Architecture,"FLUTURE, S",70,1,9,2,3,1,4,5,2,0,0,5,38,2.706
+CSCI,343,Computer Architecture,"SMITH-THOMPSON, A",32,3,4,4,4,2,1,1,3,0,0,6,3,2.607
+CSCI,343,Computer Architecture,"UPADHYAY, V",32,0,2,2,1,1,0,2,10,0,0,1,13,2.437
+CSCI,343,Computer Architecture,"SMITH-THOMPSON, A",32,2,3,4,2,3,0,0,5,0,0,8,5,2.237
+CSCI,343,Computer Architecture,"UPADHYAY, V",32,1,0,1,1,1,0,4,8,0,0,9,7,1.568
+CSCI,344,Distributed Systems,"FLUTURE, S",22,1,1,0,0,1,2,2,3,0,0,1,10,2.455
+CSCI,348,Data Communications,"RAHMAN, M",26,0,2,5,3,6,3,1,4,0,0,1,1,2.912
+CSCI,355,Internet and Web Technologies,"FRIED, M",45,0,8,5,10,7,9,4,0,0,0,0,2,3.209
+CSCI,355,Internet and Web Technologies,"LAW, R",24,2,2,1,1,4,1,3,3,0,0,1,6,2.811
+CSCI,355,Internet and Web Technologies,"LAW, R",22,2,1,2,2,2,0,1,1,0,0,5,5,2.269
+CSCI,355,Internet and Web Technologies,"LAW, R",33,2,2,1,2,2,1,1,2,0,0,10,10,1.796
+CSCI,370,Software Engineering,"GREENBERG, A",29,1,8,0,5,9,0,1,0,1,0,0,4,3.34
+CSCI,370,Software Engineering,"GREENBERG, A",35,0,10,0,7,11,1,1,3,0,1,0,1,3.179
+CSCI,370,Software Engineering,"GREENBERG, A",30,1,5,1,5,6,1,5,4,0,0,1,1,2.91
+CSCI,370,Software Engineering,"ABREU, A",32,0,3,1,5,5,6,4,1,0,1,5,1,2.439
+CSCI,370,Software Engineering,"ABREU, A",21,0,1,0,2,2,0,2,1,3,5,1,4,1.959
+CSCI,381,VT: Special Topics in Comp Sci,"PHILLIPS, T",16,2,4,4,0,0,1,1,0,0,0,1,3,3.369
+CSCI,381,VT: Special Topics in Comp Sci,"HELLER, P",33,1,8,0,7,2,5,2,1,0,0,0,7,3.277
+CSCI,381,VT: Special Topics in Comp Sci,"RODAY, R",39,2,7,7,3,7,4,1,4,0,0,0,4,3.254
+CSCI,381,VT: Special Topics in Comp Sci,"WAXMAN, J",30,11,3,3,1,1,1,1,3,0,0,2,4,3.246
+CSCI,381,VT: Special Topics in Comp Sci,"GOLDBERG, R",32,0,5,3,4,7,2,3,3,0,0,0,5,3.096
+CSCI,381,VT: Special Topics in Comp Sci,"GOLDBERG, R",33,0,10,2,3,0,4,3,6,0,1,0,4,3.034
+CSCI,381,VT: Special Topics in Comp Sci,"TSAI, C",16,0,1,0,0,3,1,1,0,0,0,1,9,2.571
+CSCI,381,VT: Special Topics in Comp Sci,"ROZOVSKAYA, A",20,0,1,0,2,3,0,2,6,0,0,1,5,2.413
+CSCI,381,VT: Special Topics in Comp Sci,"GRYAK, J",29,0,1,1,0,4,4,0,3,0,0,3,13,2.281
+CSCI,381,VT: Special Topics in Comp Sci,"ROZOVSKAYA, A",29,0,1,1,5,1,3,1,3,0,0,5,9,2.18
+CSCI,381,VT: Special Topics in Comp Sci,"BROWN, T",27,0,0,0,2,2,4,1,12,0,0,3,3,2.071
+MATH,120,Discrete Math Comp Sci,"TERILLA, J",25,1,6,4,1,4,1,0,4,1,0,1,2,3.065
+MATH,120,Discrete Math Comp Sci,"GOLDMAN, S",28,0,5,3,6,3,3,0,3,1,0,1,3,3.028
+MATH,120,Discrete Math Comp Sci,"GONZALEZ, R",30,3,3,1,2,1,2,2,5,2,1,0,7,2.805
+MATH,120,Discrete Math Comp Sci,"LEE, H",25,2,0,1,2,2,7,2,2,3,2,0,2,2.561
+MATH,120,Discrete Math Comp Sci,"LEE, D",30,0,0,4,7,2,0,1,1,4,3,1,7,2.522
+MATH,120,Discrete Math Comp Sci,"TOBAR, J",35,0,4,2,4,1,0,1,2,1,2,3,15,2.48
+MATH,120,Discrete Math Comp Sci,"GONZALEZ, R",35,3,2,0,5,2,0,3,3,3,2,3,9,2.404
+MATH,120,Discrete Math Comp Sci,"BERGER, K",35,3,0,4,2,2,5,2,2,1,4,3,7,2.4
+MATH,120,Discrete Math Comp Sci,"SABITOVA, M",29,1,2,0,0,2,0,0,8,0,2,3,11,2
+MATH,120,Discrete Math Comp Sci,"GONZALEZ, R",30,1,1,0,0,1,3,1,1,3,4,3,12,1.806
+MATH,120,Discrete Math Comp Sci,"SHEN, T",28,1,0,2,1,0,1,2,1,5,5,3,7,1.786
+MATH,120,Discrete Math Comp Sci,"BOTEJU, W",35,1,2,2,0,1,3,2,3,1,3,8,9,1.762
+MATH,122,Precalculus,"CAI, A",25,5,3,4,1,1,2,0,2,0,0,0,0,3.472
+MATH,122,Precalculus,"BROGES, A",20,2,2,1,1,3,3,0,1,0,3,0,4,2.819
+MATH,122,Precalculus,"LIU, Z",23,3,1,0,3,1,4,2,0,4,0,1,4,2.689
+MATH,122,Precalculus,"COLON, C",25,2,3,2,1,0,2,1,1,0,2,2,9,2.65
+MATH,122,Precalculus,"SPITZ, H",30,3,3,2,1,1,1,2,1,5,2,2,7,2.5
+MATH,122,Precalculus,"ARCHETTI, M",30,0,4,1,2,5,3,1,0,2,2,3,7,2.483
+MATH,122,Precalculus,"OZKAN, E",33,0,3,3,3,0,0,1,1,3,2,2,14,2.467
+MATH,122,Precalculus,"MARKOWITZ, E",33,2,4,2,0,3,2,2,2,3,2,3,7,2.46
+MATH,122,Precalculus,"FLYNN, D",33,4,2,0,1,3,3,5,5,3,3,2,2,2.387
+MATH,122,Precalculus,"JOSEPH, M",28,2,1,1,1,1,0,0,1,2,0,3,15,2.283
+MATH,122,Precalculus,"TOLEDO, D",28,2,1,1,1,1,0,0,1,2,0,3,15,2.283
+MATH,122,Precalculus,"BEGA, J",33,3,2,0,1,1,1,2,4,3,3,3,10,2.161
+MATH,122,Precalculus,"LEE, H",18,2,0,1,0,0,0,2,4,3,3,0,3,2.16
+MATH,122,Precalculus,"LEE, D",30,0,1,1,2,3,4,0,2,6,2,4,5,2.012
+MATH,122,Precalculus,"YUABOV, D",34,1,3,0,1,2,0,1,1,0,1,8,16,1.7
+MATH,122,Precalculus,"OZKAN, E",32,0,1,0,1,2,0,4,2,3,4,4,10,1.695
+MATH,122,Precalculus,"TOLEDO, D",33,0,2,1,0,3,0,0,2,1,1,7,15,1.612
+MATH,122,Precalculus,"BEGA, J",33,0,0,1,2,1,0,1,3,2,5,5,13,1.5
+MATH,122,Precalculus,"DHARMA, J",31,2,0,1,1,0,2,0,1,0,0,10,12,1.318
+MATH,122,Precalculus,"GANT, S",29,1,0,1,0,2,0,1,3,1,0,10,10,1.247
+MATH,122,Precalculus,"DHARMA, J",33,0,1,0,0,0,2,0,5,2,0,9,13,1.2
+MATH,122,Precalculus,"CLARKE, A",20,0,0,0,0,1,0,0,1,0,4,4,9,0.9
+MATH,141,Calculus/Differentiation,"SULTAN, Z",15,2,2,1,1,1,2,1,0,0,0,0,4,3.37
+MATH,141,Calculus/Differentiation,"WEN, C",30,6,6,2,3,2,2,1,2,0,0,2,4,3.192
+MATH,141,Calculus/Differentiation,"ERLBAUM, S",30,1,5,1,4,3,2,0,0,2,3,1,7,2.805
+MATH,141,Calculus/Differentiation,"FLYNN, D",30,2,4,2,2,6,2,1,4,1,2,1,3,2.793
+MATH,141,Calculus/Differentiation,"KALRA, P",21,0,1,2,2,2,2,1,4,1,1,0,4,2.65
+MATH,141,Calculus/Differentiation,"WEN, C",30,3,1,2,1,4,4,0,0,3,3,1,8,2.618
+MATH,141,Calculus/Differentiation,"LORD, A",29,1,2,3,4,1,1,1,0,2,0,4,9,2.511
+MATH,141,Calculus/Differentiation,"BROGES, A",20,2,2,2,4,0,1,0,0,1,4,2,2,2.5
+MATH,141,Calculus/Differentiation,"WANG, A",30,3,2,2,2,3,0,1,2,1,3,4,7,2.348
+MATH,141,Calculus/Differentiation,"LI, H",30,1,2,1,3,1,1,2,1,7,2,2,7,2.252
+MATH,141,Calculus/Differentiation,"KIMATOV, M",30,4,0,3,1,1,2,2,2,1,4,4,5,2.213
+MATH,141,Calculus/Differentiation,"MILLER, R",29,0,0,0,0,3,2,0,1,3,2,2,14,1.808
+MATH,141,Calculus/Differentiation,"LEE, D",20,1,0,0,1,1,1,0,2,2,1,3,8,1.783
+MATH,141,Calculus/Differentiation,"NICASTRO, S",29,2,1,1,0,2,0,3,3,2,4,6,5,1.75
+MATH,141,Calculus/Differentiation,"NEVAREZ, B",30,0,2,0,0,2,1,3,3,2,1,7,9,1.619
+MATH,141,Calculus/Differentiation,"GANT, S",30,0,0,0,1,0,1,3,1,3,5,3,12,1.471
+MATH,142,Calculus/Integration,"ERLBAUM, S",35,1,6,4,3,0,5,0,1,3,1,2,9,2.858
+MATH,142,Calculus/Integration,"ERLBAUM, S",35,2,6,2,2,3,7,1,2,1,1,3,5,2.763
+MATH,142,Calculus/Integration,"RONG, Y",25,2,0,0,3,1,1,2,3,3,5,2,3,2.014
+MATH,142,Calculus/Integration,"GANGARAM, E",30,1,0,0,0,7,2,2,5,1,2,5,5,1.948
+MATH,142,Calculus/Integration,"KOROVESHI, B",28,0,1,1,0,1,2,4,6,4,2,5,2,1.773
+MATH,142,Calculus/Integration,"KOROVESHI, B",30,1,1,0,1,1,0,3,3,8,0,7,5,1.632
+MATH,143,Calculus-Infinite Series,"ERLBAUM, S",31,2,4,1,1,1,1,4,3,0,6,5,2,2.068
+MATH,143,Calculus-Infinite Series,"WILSON, S",24,0,0,0,1,4,5,1,2,2,0,4,5,2.026
+MATH,143,Calculus-Infinite Series,"BRAUN, M",28,1,3,0,3,0,0,4,2,1,4,9,1,1.659
+MATH,143,Calculus-Infinite Series,"ADRIAN, M",29,1,2,0,0,1,0,1,3,2,2,6,11,1.594
+MATH,143,Calculus-Infinite Series,"BRAUN, M",27,3,0,0,3,2,1,0,0,1,2,10,5,1.559
+MATH,143,Calculus-Infinite Series,"BERMAN, G",20,0,1,1,0,1,1,2,1,2,0,9,1,1.3
+MATH,151,Calc/Diff & Integtn,"SPITZ, H",35,1,3,1,2,0,4,1,1,5,0,7,10,1.996
+MATH,151,Calc/Diff & Integtn,"SABITOVA, M",30,1,5,0,1,0,0,1,8,0,1,7,5,1.942
+MATH,151,Calc/Diff & Integtn,"SPITZ, H",34,1,1,2,1,2,0,1,4,2,4,8,8,1.631
+MATH,152,Calc/Integration & Infinite,"ZAKERI, S",32,2,2,2,2,2,5,2,3,1,0,5,6,2.377
+MATH,152,Calc/Integration & Infinite,"MILLER, D",24,1,0,2,1,1,1,1,1,0,1,4,11,1.977
+MATH,152,Calc/Integration & Infinite,"NEVAREZ, B",32,1,1,1,2,1,0,2,2,0,2,5,15,1.876
+MATH,152,Calc/Integration & Infinite,"MILLER, D",25,1,1,1,0,0,1,2,0,3,1,6,9,1.569
+MATH,152,Calc/Integration & Infinite,"DHARMA, J",13,0,0,0,1,0,0,0,0,2,0,4,6,0.957
+MATH,202,Advanced Calculus,"SARIC, D",13,1,3,0,3,0,2,0,1,0,0,2,1,2.775
+MATH,202,Advanced Calculus,"ADRIAN, M",29,4,2,1,0,3,4,3,2,3,2,2,3,2.519
+MATH,223,Diff Equa/Num Meth 1,"BRAUN, M",20,1,2,2,0,2,3,0,0,3,2,5,0,2.03
+MATH,231,Linear Algebra I,"ZAKERI, S",32,4,5,2,4,4,3,0,5,2,0,1,2,3.003
+MATH,231,Linear Algebra I,"JIANG, Y",28,1,2,1,6,1,0,1,1,2,3,2,7,2.46
+MATH,231,Linear Algebra I,"JOSEPH, M",30,1,2,2,2,2,2,0,4,3,0,3,9,2.405
+MATH,231,Linear Algebra I,"JOSEPH, M",30,0,1,1,2,2,5,2,1,3,1,3,9,2.214
+MATH,231,Linear Algebra I,"JIANG, Y",28,1,3,0,2,0,2,4,1,1,1,4,8,2.205
+MATH,231,Linear Algebra I,"VLAMIS, N",30,1,1,0,0,1,2,0,7,5,0,3,10,1.945
+MATH,231,Linear Algebra I,"RONG, Y",22,0,0,0,0,3,0,4,4,1,4,1,5,1.876
+MATH,231,Linear Algebra I,"PANDAZIS, M",32,1,0,0,2,2,2,3,2,3,7,2,8,1.875
+MATH,231,Linear Algebra I,"KAHAN, S",27,1,0,0,0,3,0,0,0,0,0,4,19,1.625
+MATH,231,Linear Algebra I,"KAHAN, S",30,1,0,1,0,1,2,1,1,2,1,10,10,1.24
+MATH,232,Linear Algebra II,"LEE, D",23,0,1,0,0,0,1,2,1,2,0,2,14,1.856
+MATH,241,Intro Prob & Math Stat,"TERILLA, J",25,1,14,0,0,5,3,0,1,0,0,0,1,3.546
+MATH,241,Intro Prob & Math Stat,"TERILLA, J",25,2,5,1,3,5,0,2,2,0,0,0,5,3.26
+MATH,241,Intro Prob & Math Stat,"GANGARAM, E",25,2,2,3,1,1,0,0,3,1,2,1,9,2.694
+MATH,241,Intro Prob & Math Stat,"PANDAZIS, M",31,0,2,1,4,3,2,0,5,2,2,2,7,2.378
+MATH,241,Intro Prob & Math Stat,"GANGARAM, E",25,1,1,4,0,1,1,1,3,0,0,4,9,2.3
+MATH,241,Intro Prob & Math Stat,"LIU, Z",30,3,5,0,3,1,0,0,2,1,0,7,7,2.3
+MATH,241,Intro Prob & Math Stat,"WANG, A",30,3,2,2,3,0,0,2,3,1,1,9,4,1.946
+MATH,241,Intro Prob & Math Stat,"WANG, A",24,2,1,0,1,2,0,0,3,1,0,6,8,1.813
+MATH,241,Intro Prob & Math Stat,"KOROVESHI, B",26,0,0,1,0,1,0,2,2,6,0,5,9,1.5
+MATH,241,Intro Prob & Math Stat,"KOROVESHI, B",26,0,0,1,0,0,0,2,1,6,0,5,11,1.367
+MATH,242,Methods Of Math Statistics,"SISSER, F",30,1,2,3,4,4,6,0,1,3,0,3,3,2.652
+MATH,242,Methods Of Math Statistics,"SISSER, F",30,3,2,0,2,6,2,2,3,3,0,4,3,2.433
+MATH,245,Mathematical Models,"OVCHINNIKOV, A",23,2,6,3,5,1,3,1,0,0,0,1,1,3.318
+MATH,247,Lin Prog & Game Thy,"SISSER, F",30,2,9,1,3,3,2,1,1,1,0,1,6,3.25
+MATH,120,Discrete Math Comp Sci,"GOLDMAN, S",35,0,9,6,2,3,2,9,0,1,2,0,1,3.047
+MATH,120,Discrete Math Comp Sci,"WANG, A",35,4,2,1,2,0,3,5,2,3,2,1,10,2.6
+MATH,120,Discrete Math Comp Sci,"JOANIDHI, Z",30,0,8,1,0,1,0,1,5,0,0,6,6,2.318
+MATH,120,Discrete Math Comp Sci,"BERGER, K",35,0,1,0,2,6,3,2,2,2,4,2,11,2.196
+MATH,120,Discrete Math Comp Sci,"BOTEJU, W",36,2,5,1,1,1,1,5,3,4,2,6,5,2.161
+MATH,120,Discrete Math Comp Sci,"HANUSA, C",30,2,2,2,1,1,2,3,0,1,2,6,7,2.077
+MATH,120,Discrete Math Comp Sci,"BOTEJU, W",35,1,1,2,2,4,2,0,2,1,5,6,8,1.927
+MATH,120,Discrete Math Comp Sci,"BERGER, K",36,0,1,0,1,3,2,1,5,2,4,6,10,1.656
+MATH,120,Discrete Math Comp Sci,"ADRIAN, M",37,0,2,0,1,1,3,0,4,3,7,8,8,1.466
+MATH,122,Precalculus,"CAI, A",23,1,1,5,0,0,2,1,1,0,0,0,0,3.291
+MATH,122,Precalculus,"CLEARY, J",38,6,11,3,1,2,0,1,2,1,5,0,4,3.169
+MATH,122,Precalculus,"DHARMA, J",30,1,0,1,0,0,3,0,0,0,0,0,16,3.16
+MATH,122,Precalculus,"LEE, H",35,5,1,2,4,3,4,2,0,3,0,0,11,3.088
+MATH,122,Precalculus,"ARCHETTI, M",37,10,3,1,2,6,0,1,3,2,1,2,5,3
+MATH,122,Precalculus,"CLEARY, J",35,3,3,4,2,2,6,2,3,0,4,0,4,2.834
+MATH,122,Precalculus,"KALRA, P",20,3,1,0,0,0,4,3,2,0,0,1,6,2.693
+MATH,122,Precalculus,"ISLAM, M",20,1,0,4,1,2,0,1,2,0,0,2,4,2.646
+MATH,122,Precalculus,"OZKAN, E",10,0,3,0,0,0,0,3,0,0,2,0,2,2.613
+MATH,122,Precalculus,"BROGES, A",21,0,4,1,0,6,1,1,1,0,1,3,1,2.539
+MATH,122,Precalculus,"SPITZ, H",35,1,4,3,2,2,2,0,0,0,5,3,11,2.459
+MATH,122,Precalculus,"LI, H",37,5,2,1,1,1,4,2,0,1,2,5,11,2.379
+MATH,122,Precalculus,"MARKOWITZ, E",40,0,3,4,3,4,3,1,3,2,4,4,8,2.339
+MATH,122,Precalculus,"FLYNN, D",35,1,3,3,2,4,2,1,3,5,6,3,2,2.239
+MATH,122,Precalculus,"COLON, C",37,2,1,0,0,1,0,2,1,3,4,0,19,2.193
+MATH,122,Precalculus,"YUABOV, D",37,3,2,2,0,0,3,3,1,3,2,5,12,2.146
+MATH,122,Precalculus,"MARKOWITZ, E",37,1,3,0,4,3,1,0,3,3,7,3,4,2.107
+MATH,122,Precalculus,"JOSEPH, M",35,0,1,0,0,3,3,2,2,5,1,3,12,1.96
+MATH,122,Precalculus,"SHEN, T",30,0,0,0,2,1,2,3,2,2,5,2,7,1.805
+MATH,122,Precalculus,"JOSEPH, M",37,0,1,1,1,3,2,1,2,4,3,5,13,1.804
+MATH,122,Precalculus,"GANT, S",35,0,2,2,0,1,0,0,2,1,4,4,14,1.756
+MATH,122,Precalculus,"SPITZ, H",35,1,2,1,2,5,0,3,1,1,4,10,5,1.73
+MATH,122,Precalculus,"TOLEDO, D",37,0,0,0,0,0,2,2,4,1,0,7,15,1.231
+MATH,122,Precalculus,"TOLEDO, D",37,0,0,0,0,0,1,0,1,2,6,11,10,0.671
+MATH,141,Calculus/Differentiation,"BROGES, A",19,5,3,1,0,1,1,0,0,0,1,1,3,3.262
+MATH,141,Calculus/Differentiation,"KALRA, P",20,2,3,3,0,0,1,2,2,0,0,1,5,3.029
+MATH,141,Calculus/Differentiation,"FLYNN, D",35,2,6,3,4,2,3,3,2,2,1,1,5,2.955
+MATH,141,Calculus/Differentiation,"GOLDMAN, S",30,1,4,3,4,3,1,2,3,3,2,2,2,2.632
+MATH,141,Calculus/Differentiation,"GONZALEZ, R",35,3,1,2,6,2,1,4,2,2,0,4,6,2.537
+MATH,141,Calculus/Differentiation,"KIMATOV, M",38,7,3,2,0,2,2,2,1,3,4,5,5,2.403
+MATH,141,Calculus/Differentiation,"WANG, A",34,3,1,1,5,2,4,2,2,0,2,5,7,2.356
+MATH,141,Calculus/Differentiation,"NICASTRO, S",38,2,0,3,4,1,4,3,2,3,5,2,9,2.314
+MATH,141,Calculus/Differentiation,"ERLBAUM, S",35,1,5,2,1,0,3,0,1,3,1,6,11,2.213
+MATH,141,Calculus/Differentiation,"ERLBAUM, S",34,0,2,0,1,5,3,3,4,1,5,5,5,1.931
+MATH,141,Calculus/Differentiation,"ADRIAN, M",37,1,2,1,1,4,3,0,2,0,2,8,9,1.879
+MATH,141,Calculus/Differentiation,"RALESCU, S",35,2,0,2,0,0,2,0,4,3,0,6,15,1.784
+MATH,141,Calculus/Differentiation,"TOBAR, J",40,1,3,0,1,1,1,2,3,0,3,7,17,1.755
+MATH,141,Calculus/Differentiation,"DON, E",35,0,2,0,2,2,0,0,3,0,4,6,13,1.611
+MATH,142,Calculus/Integration,"MITRA, S",28,1,3,2,5,6,0,1,3,0,0,0,6,3.152
+MATH,142,Calculus/Integration,"WEN, C",29,10,1,2,2,2,0,2,2,0,2,6,0,2.572
+MATH,142,Calculus/Integration,"WEN, C",25,5,1,1,1,1,1,4,1,1,1,4,4,2.41
+MATH,142,Calculus/Integration,"RONG, Y",21,2,1,1,0,0,2,3,4,0,3,1,4,2.294
+MATH,142,Calculus/Integration,"RICCARDO, M",30,2,0,1,1,3,6,1,3,3,3,2,4,2.264
+MATH,142,Calculus/Integration,"ISLAM, M",11,1,0,1,0,1,1,0,0,1,0,3,3,1.888
+MATH,142,Calculus/Integration,"SULTAN, A",28,0,0,1,0,1,0,5,2,1,0,6,12,1.494
+MATH,142,Calculus/Integration,"RONG, Y",22,0,0,0,0,1,1,3,1,1,5,3,7,1.42
+MATH,143,Calculus-Infinite Series,"LIU, Z",22,3,1,2,0,1,3,1,1,2,0,1,7,2.813
+MATH,143,Calculus-Infinite Series,"ERLBAUM, S",30,0,3,1,0,4,3,4,2,3,2,3,4,2.244
+MATH,143,Calculus-Infinite Series,"ERLBAUM, S",30,2,1,1,3,1,4,1,3,3,3,4,4,2.146
+MATH,143,Calculus-Infinite Series,"BRAUN, M",27,1,0,2,1,0,1,1,0,6,2,5,8,1.679
+MATH,143,Calculus-Infinite Series,"BRAUN, M",28,2,1,0,1,0,1,1,0,1,1,9,11,1.353
+MATH,151,Calc/Diff & Integtn,"PANDAZIS, M",25,2,0,0,1,1,0,0,5,0,5,0,9,2.093
+MATH,151,Calc/Diff & Integtn,"DON, E",31,2,0,1,2,0,1,0,4,0,4,4,10,1.833
+MATH,151,Calc/Diff & Integtn,"KAHAN, S",30,0,0,0,1,1,0,1,1,0,4,3,18,1.327
+MATH,152,Calc/Integration & Infinite,"TERILLA, J",25,4,5,2,3,1,0,0,2,0,1,3,4,2.919
+MATH,152,Calc/Integration & Infinite,"BERMAN, G",30,1,5,1,0,0,0,1,0,1,1,3,16,2.515
+MATH,152,Calc/Integration & Infinite,"KOROVESHI, B",26,0,1,2,0,1,1,3,3,0,0,7,8,1.667
+MATH,152,Calc/Integration & Infinite,"PORCHETTA, E",20,2,0,0,0,0,2,0,2,2,0,5,7,1.6
+MATH,152,Calc/Integration & Infinite,"KAHAN, S",28,0,1,0,1,0,0,1,1,0,1,8,15,0.969
+MATH,202,Advanced Calculus,"SARIC, D",25,3,7,2,1,0,3,3,1,1,0,0,4,3.305
+MATH,209,Elementary Set Theory,"KLOSIN, K",14,0,2,1,0,0,1,4,0,0,3,1,2,2.217
+MATH,220,Discrete Mathematics,"GANGARAM, E",21,1,5,0,4,4,1,1,1,0,1,0,3,3.178
+MATH,220,Discrete Mathematics,"MILLER, D",16,2,2,3,1,0,0,0,0,0,1,1,6,3.14
+MATH,223,Diff Equa/Num Meth 1,"JOSEPH, M",20,0,4,4,0,1,4,0,2,2,1,1,1,2.789
+MATH,223,Diff Equa/Num Meth 1,"BRAUN, M",28,1,2,3,3,4,4,2,1,3,1,2,2,2.635
+MATH,231,Linear Algebra I,"SABITOVA, M",19,1,3,0,1,0,0,1,1,0,0,0,12,3.371
+MATH,231,Linear Algebra I,"JIANG, Y",30,2,4,4,2,2,0,1,2,0,1,1,11,3.089
+MATH,231,Linear Algebra I,"ZAKERI, S",30,4,5,1,1,4,3,2,4,2,1,1,2,2.861
+MATH,231,Linear Algebra I,"JOSEPH, M",30,1,3,1,2,4,3,1,1,3,0,5,6,2.325
+MATH,231,Linear Algebra I,"PANDAZIS, M",30,1,3,0,1,1,1,1,3,1,3,2,13,2.235
+MATH,231,Linear Algebra I,"KOROVESHI, B",26,1,3,2,1,3,2,0,1,2,0,6,5,2.214
+MATH,231,Linear Algebra I,"DHARMA, J",27,3,1,0,1,1,0,0,1,0,0,4,16,2.209
+MATH,231,Linear Algebra I,"BERMAN, G",21,0,2,0,2,0,2,0,1,0,0,3,11,2.2
+MATH,231,Linear Algebra I,"MILLER, D",24,0,1,2,1,3,1,1,1,2,2,3,7,2.124
+MATH,231,Linear Algebra I,"KOROVESHI, B",24,0,0,1,0,0,1,3,3,5,0,2,9,1.853
+MATH,231,Linear Algebra I,"VLAMIS, N",23,1,0,0,2,0,2,1,3,2,0,6,5,1.629
+MATH,241,Intro Prob & Math Stat,"MITRA, S",25,0,3,2,4,2,4,1,0,0,0,0,8,3.231
+MATH,241,Intro Prob & Math Stat,"MILLER, D",25,0,4,1,2,1,0,1,2,1,1,0,12,2.946
+MATH,241,Intro Prob & Math Stat,"LIU, Z",35,2,3,2,4,2,4,3,1,2,0,1,11,2.904
+MATH,241,Intro Prob & Math Stat,"SISSER, F",36,1,2,1,5,4,6,0,2,2,0,4,9,2.511
+MATH,241,Intro Prob & Math Stat,"SISSER, F",36,3,2,4,2,0,6,0,4,7,0,3,4,2.5
+MATH,241,Intro Prob & Math Stat,"GANGARAM, E",28,3,2,1,2,2,3,0,2,2,2,3,6,2.445
+MATH,241,Intro Prob & Math Stat,"MILLER, D",25,1,2,2,1,0,1,1,1,0,2,3,11,2.264
+MATH,241,Intro Prob & Math Stat,"NEVAREZ, B",36,2,3,3,0,1,1,4,4,4,4,4,6,2.16
+MATH,241,Intro Prob & Math Stat,"GANGARAM, E",36,0,1,0,0,3,1,2,3,2,1,10,13,1.335
+MATH,242,Methods Of Math Statistics,"SISSER, F",36,7,2,1,0,0,4,0,3,4,0,8,7,2.183
+MATH,247,Lin Prog & Game Thy,"KLOSIN, K",36,4,16,0,1,1,4,2,2,0,0,2,4,3.303
+MATH,310,Elementary Real Analysis,"WILSON, S",24,0,5,3,0,4,2,2,2,1,0,0,5,3.095
