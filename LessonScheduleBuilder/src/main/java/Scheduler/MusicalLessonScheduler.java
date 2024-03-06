@@ -46,7 +46,7 @@ public class MusicalLessonScheduler {
 
     private void createAndShowGUI() {
         // Create the main frame and set its properties.
-        JFrame frame = new JFrame("Musical Lesson Scheduler by Jorge Robles Version Jan 2024");
+        JFrame frame = new JFrame("Musical Lesson Scheduler by Jorge Robles Version Mar 2024");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(new Dimension(800, 600));
         frame.setLayout(new BorderLayout());

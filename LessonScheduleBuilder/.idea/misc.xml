@@ -9,5 +9,5 @@
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (Assignment6) (2)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="corretto-11" project-jdk-type="JavaSDK" />
 </project>

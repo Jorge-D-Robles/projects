@@ -43,7 +43,7 @@ public class ScheduleBuilder {
     }
 
     private void shuffleGroups() {
-        Collections.shuffle(allGroups);
+        //Collections.shuffle(allGroups);
     }
 
     private String findGroup() {
