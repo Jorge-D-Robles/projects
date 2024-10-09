@@ -22,6 +22,4 @@ For the Schedule Builder, you can run the Java or Python version depending on yo
 
 I am a current career-changing Queens College alumni who has studied and completed a Computer Science Bachelor's degree in December 2023. Prior to this, I received my Bachelor's degree in Music Education in 2019 and worked as a professional public school Music/Band teacher in the New York area before deciding to embark on a new journey as a Software Engineer. 
 
-I'm always looking for employment opportunities where I can apply my coding skills to solve real-world problems post-graduation. If you're interested in my work or would like to discuss potential opportunities for 2024, please feel free to contact me at: [me@jorgerobles.com](mailto:me@jorgerobles.com).
-
 Thank you for visiting my project repository!
