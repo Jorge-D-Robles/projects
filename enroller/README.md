@@ -36,9 +36,7 @@ Note: This script requires the Selenium WebDriver, the WebDriver Manager, Twilio
 
 While this script is designed to automate the process of checking for available classes and swapping them, it's important to use it responsibly to avoid causing issues with the CUNYFirst server. Excessive requests to the server in a short period of time can lead to performance issues, and in some cases, may even result in your IP address being temporarily or permanently blocked.
 
-When you edit the script and input your own credentials, you will be asked to enter a delay (in seconds) between schedule checks. This delay is essentially the frequency at which the script sends requests to the server with a random interval of +- 20 seconds.  Please ensure that you set a reasonable delay to prevent flooding the server with requests. A delay of 300+ seconds is generally considered reasonable, but this may vary depending on the time of day and the server's current load.
-
-Remember, the goal of this script is to help you automate the class registration process, not to disrupt the operation of the CUNYFirst server. Please use this tool responsibly.
+When you edit the script and input your own credentials, you will be asked to enter a delay (in seconds) between schedule checks. This delay is essentially the frequency at which the script sends requests to the server with a random interval of +- 20 seconds.  Please ensure that you set a reasonable delay to prevent flooding the server with requests, although this program does already have protections against that. A delay of 300+ seconds is generally considered reasonable, but this may vary depending on the time of day and the server's current load. 
 
 ## Contact
 
