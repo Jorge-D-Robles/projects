@@ -4,6 +4,9 @@ Welcome to my project repository! Here, you'll find a collection of extracurricu
 
 ## Projects
 
+### QCCS AI Advisor
+The QCCS AI Advisor is a Flask-based web application designed to assist Queens College Computer Science students in navigating their academic journey. Utilizing OpenAI's GPT model, the application offers personalized academic advice, including course selections and professor recommendations, based on the student's input and historical grade distribution data. This application was developed as part of the HackCUNY 2024 Hackathon by Jorge Robles, Brian Flores, Thomas Soupionis, and Samiha Zaman.
+
 ### Schedule Maker (Java and Python versions)
 
 The Schedule Maker is a program designed to solve the unique scheduling problem faced by Jonas E. Salk Middle School's music lesson plan. The school operates on a two-day cycle with 20 total groups and four periods available for lesson periods each day. The students must not miss the same period more than once every four weeks, and if possible, they should shuffle through Monday - Friday rather than always going on the same day of the week.
