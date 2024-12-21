@@ -4,6 +4,9 @@ Welcome to my project repository! Here, you'll find a collection of extracurricu
 
 ## Projects
 
+### QCCS AI Advisor
+The QCCS AI Advisor is a Flask-based web application designed to assist Queens College Computer Science students in navigating their academic journey. Utilizing OpenAI's GPT model, the application offers personalized academic advice, including course selections and professor recommendations, based on the student's input and historical grade distribution data. This application was developed as part of the HackCUNY 2024 Hackathon by Jorge Robles, Brian Flores, Thomas Soupionis, and Samiha Zaman.
+
 ### Schedule Maker (Java and Python versions)
 
 The Schedule Maker is a program designed to solve the unique scheduling problem faced by Jonas E. Salk Middle School's music lesson plan. The school operates on a two-day cycle with 20 total groups and four periods available for lesson periods each day. The students must not miss the same period more than once every four weeks, and if possible, they should shuffle through Monday - Friday rather than always going on the same day of the week.
@@ -21,7 +24,5 @@ For the Schedule Builder, you can run the Java or Python version depending on yo
 ## About Me
 
 I am a current career-changing Queens College alumni who has studied and completed a Computer Science Bachelor's degree in December 2023. Prior to this, I received my Bachelor's degree in Music Education in 2019 and worked as a professional public school Music/Band teacher in the New York area before deciding to embark on a new journey as a Software Engineer. 
-
-I'm always looking for employment opportunities where I can apply my coding skills to solve real-world problems post-graduation. If you're interested in my work or would like to discuss potential opportunities for 2024, please feel free to contact me at: [me@jorgerobles.com](mailto:me@jorgerobles.com).
 
 Thank you for visiting my project repository!
