@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ScheduleBuilder Unit Tests</title>
+    <style>
+        body { font-family: sans-serif; }
+        .test-results { list-style-type: none; padding: 0; }
+        .test-results li { margin-bottom: 5px; padding: 5px; border-radius: 3px; }
+        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h1>ScheduleBuilder Unit Tests</h1>
+    <p>Check the browser's developer console for detailed logs. Results are also displayed below.</p>
+    <div id="results"></div>
+
+    <script>
+        // --- Core Scheduling Logic (Copied from test.html) ---
+
+        /**
+         * Represents a single day in the schedule.
+         */
+        class ScheduleEntry {
+            constructor(date) {
+                this.date = date
+                this.lessons = [] // An array of {period, group} objects
+            }
+
+            addLesson(period, group) {
+                this.lessons.push({ period: `Pd ${period}`, group })
+            }
+        }
+
+        /**
+         * The main class for building the schedule based on new 25/26 rules.
+         */
+        class ScheduleBuilder {
+            constructor(startDate, dayCycle, daysOff, weeks) {
+                const startParts = startDate.split("-")
+                this.startDate = new Date(
+                    startParts[0],
+                    startParts[1] - 1,
+                    startParts[2]
+                )
+                this.dayCycle = dayCycle
+                this.daysOff = daysOff
+                    .map((d) => {
+                        if (!d) return null
+                        const parts = d.split("-")
+                        return new Date(
+                            parts[0],
+                            parts[1] - 1,
+                            parts[2]
+                        ).toDateString()
+                    })
+                    .filter(Boolean)
+                this.weeks = weeks
+                this.schedule = []
+
+                this.LESSON_GROUPS = Array.from({ length: 22 }, (_, i) =>
+                    String.fromCharCode("A".charCodeAt(0) + i)
+                ) // Groups A-V
+                this.DAY1_PERIODS = [1, 4, 7, 8]
+                this.DAY2_PERIODS = [1, 2, 3, 7, 8]
+
+                this.periodAssignments = {}
+                this.LESSON_GROUPS.forEach(
+                    (g) => (this.periodAssignments[g] = {})
+                )
+
+                this.groupSets = []
+                const allGroupsCopy = [...this.LESSON_GROUPS]
+                this.groupSets.push(allGroupsCopy.splice(0, 5)) // A-E
+                this.groupSets.push(allGroupsCopy.splice(0, 5)) // F-J
+                this.groupSets.push(allGroupsCopy.splice(0, 4)) // K-N
+                this.groupSets.push(allGroupsCopy.splice(0, 4)) // O-R
+                this.groupSets.push(allGroupsCopy.splice(0, 4)) // S-V
+            }
+
+            /**
+             * Rotates the bundles and the groups within them for the next cycle.
+             */
+            setupNextGroupCycle() {
+                this.groupSets.push(this.groupSets.shift())
+                this.groupSets.forEach((set) => {
+                    if (set.length > 1) {
+                        set.push(set.shift())
+                    }
+                })
+                return this.groupSets.flat()
+            }
+
+            /**
+             * Finds the best available group for a given period from the cycle's remaining groups.
+             * It prioritizes the group that is earliest in the planned rotation.
+             * @returns {object} { group: string, indexInCycle: number }
+             */
+            findBestGroupForPeriod(groupsForCycle, date, period) {
+                // Iterate through the entire list of groups remaining in the cycle, in their ideal order.
+                for (let i = 0; i < groupsForCycle.length; i++) {
+                    const potentialGroup = groupsForCycle[i]
+                    const lastAssignmentDate =
+                        this.periodAssignments[potentialGroup][period]
+
+                    let isEligible = true
+                    if (lastAssignmentDate) {
+                        const daysSince =
+                            (date - lastAssignmentDate) /
+                            (1000 * 60 * 60 * 24)
+                        if (daysSince < 28) {
+                            isEligible = false // Conflict: This group had this period too recently.
+                        }
+                    }
+
+                    // If the group is eligible, we've found our best candidate.
+                    if (isEligible) {
+                        return { group: potentialGroup, indexInCycle: i }
+                    }
+                }
+
+                // If the loop completes, no group in the entire remaining cycle was eligible.
+                // This is the only time a non-end-of-week MU should be placed.
+                return { group: "MU", indexInCycle: -1 }
+            }
+
+            /**
+             * Generates the entire schedule.
+             */
+            buildSchedule() {
+                let currentDate = new Date(this.startDate.getTime())
+                let endDate = new Date(this.startDate.getTime())
+                endDate.setDate(endDate.getDate() + this.weeks * 7)
+
+                let groupsForCycle = this.groupSets.flat()
+                let weeklyLessonCount = 0
+
+                while (currentDate < endDate) {
+                    const dayOfWeek = currentDate.getDay()
+
+                    if (dayOfWeek === 1) {
+                        // Monday
+                        weeklyLessonCount = 0
+                    }
+
+                    const isWeekday = dayOfWeek > 0 && dayOfWeek < 6
+                    const isDayOff = this.daysOff.includes(
+                        currentDate.toDateString()
+                    )
+
+                    if (isWeekday && !isDayOff) {
+                        const entry = new ScheduleEntry(
+                            new Date(currentDate.getTime())
+                        )
+                        const periodsForDay =
+                            this.dayCycle % 2 !== 0
+                                ? this.DAY1_PERIODS
+                                : this.DAY2_PERIODS
+
+                        for (const period of periodsForDay) {
+                            if (weeklyLessonCount >= 22) {
+                                entry.addLesson(period, "MU")
+                                continue
+                            }
+
+                            if (groupsForCycle.length === 0) {
+                                groupsForCycle = this.setupNextGroupCycle()
+                            }
+
+                            const assignment = this.findBestGroupForPeriod(
+                                groupsForCycle,
+                                currentDate,
+                                period
+                            )
+
+                            if (assignment.group !== "MU") {
+                                // A valid group was found.
+                                entry.addLesson(period, assignment.group)
+                                this.periodAssignments[assignment.group][
+                                    period
+                                ] = new Date(currentDate.getTime())
+                                // Remove the assigned group from the cycle's pool.
+                                groupsForCycle.splice(
+                                    assignment.indexInCycle,
+                                    1
+                                )
+                            } else {
+                                // No eligible group was found in the entire remaining cycle.
+                                entry.addLesson(period, "MU")
+                            }
+                            weeklyLessonCount++
+                        }
+                        this.schedule.push(entry)
+                        this.dayCycle++
+                    }
+                    currentDate.setDate(currentDate.getDate() + 1)
+                }
+                return this.schedule
+            }
+        }
+    </script>
+
+    <script>
+        // --- Test Runner ---
+        const testResults = [];
+        const resultsContainer = document.getElementById('results');
+
+        function test(description, testFn) {
+            try {
+                testFn();
+                testResults.push({ description, status: 'pass' });
+                console.log(`✅ PASS: ${description}`);
+            } catch (error) {
+                testResults.push({ description, status: 'fail', error });
+                console.error(`❌ FAIL: ${description}`);
+                console.error(error);
+            }
+        }
+
+        function assertEquals(actual, expected, message) {
+            if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+                throw new Error(`${message || 'Assertion failed'}: Expected ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`);
+            }
+        }
+
+        function assertTrue(value, message) {
+            if (!value) {
+                throw new Error(`${message || 'Assertion failed'}: Expected true, but got false`);
+            }
+        }
+
+        function renderResults() {
+            const ul = document.createElement('ul');
+            ul.className = 'test-results';
+            testResults.forEach(result => {
+                const li = document.createElement('li');
+                li.className = result.status;
+                li.textContent = `${result.status.toUpperCase()}: ${result.description}`;
+                if (result.status === 'fail') {
+                    const pre = document.createElement('pre');
+                    pre.textContent = result.error.stack;
+                    li.appendChild(pre);
+                }
+                ul.appendChild(li);
+            });
+            resultsContainer.appendChild(ul);
+        }
+
+        // --- Test Suites ---
+
+        function runScheduleBuilderTests() {
+            const startDate = '2025-09-02'; // A Tuesday
+            const dayCycle = 1;
+            const daysOff = [];
+            const weeks = 1;
+
+            test('ScheduleBuilder: constructor initializes properties correctly', () => {
+                const builder = new ScheduleBuilder(startDate, dayCycle, daysOff, weeks);
+                assertEquals(builder.dayCycle, 1, 'dayCycle should be 1');
+                assertEquals(builder.weeks, 1, 'weeks should be 1');
+                assertEquals(builder.LESSON_GROUPS.length, 22, 'Should have 22 lesson groups (A-V)');
+                assertEquals(builder.groupSets.length, 5, 'Should have 5 group sets');
+                assertEquals(builder.groupSets[0], ['A', 'B', 'C', 'D', 'E'], 'First group set is incorrect');
+                assertEquals(builder.groupSets[4], ['S', 'T', 'U', 'V'], 'Last group set is incorrect');
+            });
+
+            test('ScheduleBuilder: setupNextGroupCycle rotates groups correctly', () => {
+                const builder = new ScheduleBuilder(startDate, dayCycle, daysOff, weeks);
+                const initialFirstSet = [...builder.groupSets[0]]; // ['A', 'B', 'C', 'D', 'E']
+                const initialSecondSet = [...builder.groupSets[1]]; // ['F', 'G', 'H', 'I', 'J']
+
+                builder.setupNextGroupCycle();
+
+                // The first set should move to the end
+                assertEquals(builder.groupSets[4], initialFirstSet, 'First set should move to the end');
+                // The second set should now be the first
+                assertEquals(builder.groupSets[0], initialSecondSet, 'Second set should become the first');
+                // The groups within the new first set should be rotated
+                assertEquals(builder.groupSets[0], ['G', 'H', 'I', 'J', 'F'], 'Groups within the set should rotate');
+            });
+
+            test('findBestGroupForPeriod: finds the first eligible group', () => {
+                const builder = new ScheduleBuilder(startDate, dayCycle, [], 1);
+                const groupsForCycle = ['A', 'B', 'C'];
+                const testDate = new Date('2025-09-02');
+                const period = 1;
+
+                const result = builder.findBestGroupForPeriod(groupsForCycle, testDate, period);
+                assertEquals(result.group, 'A', 'Should select the first group in the list');
+                assertEquals(result.indexInCycle, 0, 'Index should be 0');
+            });
+
+            test('findBestGroupForPeriod: skips a group with a recent period conflict', () => {
+                const builder = new ScheduleBuilder(startDate, dayCycle, [], 1);
+                const groupsForCycle = ['A', 'B', 'C'];
+                const testDate = new Date('2025-09-10');
+                const period = 1;
+
+                // Simulate group 'A' having had period 1 recently
+                builder.periodAssignments['A'][period] = new Date('2025-09-05'); // 5 days ago
+
+                const result = builder.findBestGroupForPeriod(groupsForCycle, testDate, period);
+                assertEquals(result.group, 'B', 'Should skip group A and select group B');
+                assertEquals(result.indexInCycle, 1, 'Index should be 1');
+            });
+
+            test('findBestGroupForPeriod: returns "MU" if no groups are eligible', () => {
+                const builder = new ScheduleBuilder(startDate, dayCycle, [], 1);
+                const groupsForCycle = ['A', 'B', 'C'];
+                const testDate = new Date('2025-09-10');
+                const period = 1;
+
+                // Simulate all groups having a conflict
+                builder.periodAssignments['A'][period] = new Date('2025-09-08');
+                builder.periodAssignments['B'][period] = new Date('2025-09-08');
+                builder.periodAssignments['C'][period] = new Date('2025-09-08');
+
+                const result = builder.findBestGroupForPeriod(groupsForCycle, testDate, period);
+                assertEquals(result.group, 'MU', 'Should return "MU" when no groups are eligible');
+            });
+
+            test('buildSchedule: generates schedule for 1 week correctly', () => {
+                // 2025-09-01 is a Monday, but we start on Tuesday 09-02
+                const builder = new ScheduleBuilder('2025-09-02', 1, [], 1);
+                const schedule = builder.buildSchedule();
+                // Tue, Wed, Thu, Fri = 4 days
+                assertEquals(schedule.length, 4, 'Should generate 4 schedule entries for 1 week starting on a Tuesday');
+                assertEquals(schedule[0].date.getDay(), 2, 'First entry should be a Tuesday');
+                assertEquals(schedule[0].lessons.length, 4, 'Day 1 cycle should have 4 lessons');
+                assertEquals(schedule[1].lessons.length, 5, 'Day 2 cycle should have 5 lessons');
+            });
+
+            test('buildSchedule: skips specified days off', () => {
+                // Start on Mon 2025-09-01. Day off on Wed 2025-09-03.
+                const builder = new ScheduleBuilder('2025-09-01', 1, ['2025-09-03'], 1);
+                const schedule = builder.buildSchedule();
+                // Mon, Tue, Thu, Fri = 4 days
+                assertEquals(schedule.length, 4, 'Should generate 4 entries, skipping Wednesday');
+                const wednesdayFound = schedule.some(entry => entry.date.getDay() === 3);
+                assertTrue(!wednesdayFound, 'Schedule should not contain an entry for Wednesday');
+            });
+
+            test('buildSchedule: skips weekends', () => {
+                const builder = new ScheduleBuilder('2025-09-01', 1, [], 1); // Full week Mon-Fri
+                const schedule = builder.buildSchedule();
+                assertEquals(schedule.length, 5, 'Should generate 5 entries for a full week');
+                const weekendFound = schedule.some(entry => entry.date.getDay() === 0 || entry.date.getDay() === 6);
+                assertTrue(!weekendFound, 'Schedule should not contain entries for Saturday or Sunday');
+            });
+        }
+
+        // Run all tests
+        runScheduleBuilderTests();
+        renderResults();
+    </script>
+</body>
+</html>
+
