@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Music Lesson Scheduler</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: "Inter", sans-serif;
+            }
+            .custom-loader {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: radial-gradient(farthest-side, #766df4 94%, #0000)
+                        top/8px 8px no-repeat,
+                    conic-gradient(#0000 30%, #766df4);
+                -webkit-mask: radial-gradient(
+                    farthest-side,
+                    #0000 calc(100% - 8px),
+                    #000 0
+                );
+                animation: s3 1s infinite linear;
+            }
+            @keyframes s3 {
+                100% {
+                    transform: rotate(1turn);
+                }
+            }
+            .table-container {
+                max-height: 400px;
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100 text-gray-800">
+        <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+            <header class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900">
+                    Music Lesson Scheduler
+                </h1>
+                <p class="text-gray-600 mt-2">
+                    A web-based version of the Salk Middle School music lesson
+                    scheduler.
+                </p>
+            </header>
+
+            <main class="bg-white p-6 rounded-lg shadow-lg">
+                <div id="form-container">
+                    <h2 class="text-2xl font-semibold mb-6">
+                        Schedule Parameters
+                    </h2>
+                    <form
+                        id="schedule-form"
+                        class="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    >
+                        <div>
+                            <label
+                                for="start-date"
+                                class="block text-sm font-medium text-gray-700"
+                                >Start Date</label
+                            >
+                            <input
+                                type="date"
+                                id="start-date"
+                                required
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="day-cycle"
+                                class="block text-sm font-medium text-gray-700"
+                                >Day Cycle (1 or 2)</label
+                            >
+                            <input
+                                type="number"
+                                id="day-cycle"
+                                min="1"
+                                max="2"
+                                required
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="weeks"
+                                class="block text-sm font-medium text-gray-700"
+                                >Number of Weeks (1-52)</label
+                            >
+                            <input
+                                type="number"
+                                id="weeks"
+                                min="1"
+                                max="52"
+                                required
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                            />
+                        </div>
+                        <div class="md:col-span-2">
+                            <label
+                                for="days-off"
+                                class="block text-sm font-medium text-gray-700"
+                                >Days Off (optional, comma-separated)</label
+                            >
+                            <div id="days-off-container" class="space-y-2 mt-1">
+                                <div class="flex items-center space-x-2">
+                                    <input
+                                        type="date"
+                                        class="day-off-input block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                                    />
+                                    <button
+                                        type="button"
+                                        id="add-day-off"
+                                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2 flex items-center">
+                            <input
+                                id="custom-schedule"
+                                type="checkbox"
+                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                            />
+                            <label
+                                for="custom-schedule"
+                                class="ml-2 block text-sm text-gray-900"
+                                >Build custom schedule</label
+                            >
+                        </div>
+
+                        <div
+                            id="custom-schedule-input"
+                            class="hidden md:col-span-2 space-y-4"
+                        >
+                            <p class="text-sm text-gray-600">
+                                Enter the previous group order (4 groups per
+                                day, space-separated).
+                            </p>
+                            <div id="custom-groups-container"></div>
+                        </div>
+
+                        <div class="md:col-span-2 flex justify-end space-x-4">
+                            <button
+                                type="submit"
+                                id="generate-btn"
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300"
+                            >
+                                Generate Schedule
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div
+                    id="loading-indicator"
+                    class="hidden flex justify-center items-center my-8"
+                >
+                    <div class="custom-loader"></div>
+                </div>
+
+                <div id="schedule-output" class="hidden mt-8">
+                    <h2 class="text-2xl font-semibold mb-4">
+                        Generated Schedule
+                    </h2>
+                    <div
+                        class="table-container border border-gray-200 rounded-lg"
+                    >
+                        <table
+                            id="schedule-table"
+                            class="min-w-full divide-y divide-gray-200"
+                        >
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Date
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Period
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Group 1
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Period
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Group 2
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Period
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Group 3
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Period
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    >
+                                        Group 4
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="bg-white divide-y divide-gray-200"
+                            ></tbody>
+                        </table>
+                    </div>
+                    <div class="mt-6 flex justify-end space-x-4">
+                        <button
+                            id="reroll-btn"
+                            class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300"
+                        >
+                            Re-Roll
+                        </button>
+                        <button
+                            id="save-csv-btn"
+                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300"
+                        >
+                            Save to CSV
+                        </button>
+                    </div>
+                </div>
+            </main>
+            <footer class="text-center mt-8 text-sm text-gray-500">
+                <p>Built by Jorge Robles. Ported to Web by Gemini.</p>
+            </footer>
+        </div>
+
+        <script>
+            // --- Core Scheduling Logic (from Java code) ---
+
+            class ScheduleEntry {
+                constructor() {
+                    this.dayCycle = 0
+                    this.date = null
+                    this.period1 = ""
+                    this.group1 = ""
+                    this.period2 = ""
+                    this.group2 = ""
+                    this.period3 = ""
+                    this.group3 = ""
+                    this.period4 = ""
+                    this.group4 = ""
+                }
+
+                setDate(date) {
+                    this.date = date
+                }
+
+                // Getters modified per original Java logic
+                getPeriod1() {
+                    return this.period1
+                }
+                getGroup1() {
+                    return this.group1
+                }
+                getPeriod2() {
+                    return this.period2
+                }
+                getGroup2() {
+                    return this.group2
+                }
+                getPeriod3() {
+                    return this.period3
+                }
+                getGroup3() {
+                    return this.group3
+                }
+                getPeriod4() {
+                    return this.period4
+                } // Period 9 on all days
+                getGroup4() {
+                    return this.group4
+                } // Group 4 on all days
+
+                setPeriod(dayCycle, periodIndex, group) {
+                    this.dayCycle = dayCycle
+                    let period = ""
+                    switch (periodIndex) {
+                        case 1:
+                            period =
+                                dayCycle % 2 === 1 ? "Period 1" : "Period 6"
+                            break
+                        case 2:
+                            period =
+                                dayCycle % 2 === 1 ? "Period 3" : "Period 8"
+                            break
+                        case 3:
+                            period = "Period 4"
+                            break
+                        case 4:
+                            period = "Period 9"
+                            break
+                    }
+                    if (periodIndex === 1) {
+                        this.period1 = period
+                        this.group1 = group
+                    } else if (periodIndex === 2) {
+                        this.period2 = period
+                        this.group2 = group
+                    } else if (periodIndex === 3) {
+                        this.period3 = period
+                        this.group3 = group
+                    } else if (periodIndex === 4) {
+                        this.period4 = period
+                        this.group4 = group
+                    }
+                }
+            }
+
+            class ScheduleBuilder {
+                constructor(
+                    startDate,
+                    dayCycle,
+                    daysOff,
+                    weeks,
+                    customSchedule,
+                    allGroups
+                ) {
+                    const startParts = startDate.split("-")
+                    this.startDate = new Date(
+                        startParts[0],
+                        startParts[1] - 1,
+                        startParts[2]
+                    )
+                    this.dayCycle = dayCycle
+                    this.daysOff = daysOff.map((d) => {
+                        const parts = d.split("-")
+                        return new Date(
+                            parts[0],
+                            parts[1] - 1,
+                            parts[2]
+                        ).toDateString()
+                    })
+                    this.weeks = weeks
+                    this.customSchedule = customSchedule
+                    // Deep copy of allGroups
+                    this.allGroups = allGroups.map((group) => [...group])
+                    this.schedule = []
+
+                    this.group_randomizer = 0
+                    this.group_change = 0
+                    this.group_index = 0
+                    this.total_changes = 0
+                }
+
+                rotateList(list) {
+                    if (list.length > 1) {
+                        list.unshift(list.pop())
+                    }
+                }
+
+                findGroup() {
+                    let group = null
+                    this.group_randomizer++
+
+                    if (this.group_randomizer === 21) {
+                        // shuffleGroups() is commented out in Java, so we do the same
+                        this.group_randomizer = 1
+                    }
+
+                    if (this.total_changes < 20 && !this.customSchedule) {
+                        group =
+                            this.allGroups[this.group_index][this.group_change]
+                    } else if (this.customSchedule && this.group_change === 0) {
+                        this.rotateList(this.allGroups[this.group_index])
+                        group =
+                            this.allGroups[this.group_index][this.group_change]
+                    } else if (
+                        this.group_change === 0 &&
+                        this.total_changes >= 20 &&
+                        !this.customSchedule
+                    ) {
+                        this.rotateList(this.allGroups[this.group_index])
+                        group =
+                            this.allGroups[this.group_index][this.group_change]
+                    } else if (this.group_change > 0 && this.group_change < 5) {
+                        group =
+                            this.allGroups[this.group_index][this.group_change]
+                    }
+
+                    this.total_changes++
+                    this.group_change++
+
+                    if (this.group_change === 4) {
+                        this.group_index++
+                        this.group_change = 0
+                        if (this.group_index === 5) {
+                            this.group_index = 0
+                        }
+                    }
+                    return group
+                }
+
+                buildSchedule() {
+                    let currentDate = new Date(this.startDate.getTime())
+
+                    let endDate = new Date(this.startDate.getTime())
+                    endDate.setDate(endDate.getDate() + this.weeks * 7)
+
+                    while (currentDate < endDate) {
+                        const dayOfWeek = currentDate.getDay() // 0 = Sunday, 6 = Saturday
+                        const isWeekday = dayOfWeek > 0 && dayOfWeek < 6
+                        const isDayOff = this.daysOff.includes(
+                            currentDate.toDateString()
+                        )
+
+                        if (isWeekday && !isDayOff) {
+                            const entry = new ScheduleEntry()
+                            entry.setDate(new Date(currentDate.getTime()))
+                            for (let i = 0; i < 4; i++) {
+                                const group = this.findGroup()
+                                entry.setPeriod(this.dayCycle, i + 1, group)
+                            }
+                            this.schedule.push(entry)
+                            this.dayCycle++
+                        }
+                        currentDate.setDate(currentDate.getDate() + 1)
+                    }
+                    return this.schedule
+                }
+            }
+
+            // --- UI Logic and Event Handling ---
+
+            let lastScheduleParams = {}
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const form = document.getElementById("schedule-form")
+                const generateBtn = document.getElementById("generate-btn")
+                const rerollBtn = document.getElementById("reroll-btn")
+                const saveCsvBtn = document.getElementById("save-csv-btn")
+                const customScheduleCheckbox =
+                    document.getElementById("custom-schedule")
+                const customScheduleInput = document.getElementById(
+                    "custom-schedule-input"
+                )
+                const customGroupsContainer = document.getElementById(
+                    "custom-groups-container"
+                )
+                const addDayOffBtn = document.getElementById("add-day-off")
+
+                // Set default start date to today
+                const today = new Date()
+                const yyyy = today.getFullYear()
+                const mm = String(today.getMonth() + 1).padStart(2, "0")
+                const dd = String(today.getDate()).padStart(2, "0")
+                document.getElementById(
+                    "start-date"
+                ).value = `${yyyy}-${mm}-${dd}`
+
+                // Add new day off input
+                addDayOffBtn.addEventListener("click", () => {
+                    const container =
+                        document.getElementById("days-off-container")
+                    const newDayOff = document.createElement("div")
+                    newDayOff.className = "flex items-center space-x-2"
+                    newDayOff.innerHTML = `
+                    <input type="date" class="day-off-input block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2">
+                    <button type="button" class="remove-day-off bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">-</button>
+                `
+                    container.appendChild(newDayOff)
+                })
+
+                // Remove day off input
+                document
+                    .getElementById("days-off-container")
+                    .addEventListener("click", (e) => {
+                        if (e.target.classList.contains("remove-day-off")) {
+                            e.target.parentElement.remove()
+                        }
+                    })
+
+                // Toggle custom schedule input
+                customScheduleCheckbox.addEventListener("change", () => {
+                    if (customScheduleCheckbox.checked) {
+                        customScheduleInput.classList.remove("hidden")
+                        customGroupsContainer.innerHTML = "" // Clear previous
+                        for (let i = 1; i <= 5; i++) {
+                            const dayInput = document.createElement("div")
+                            dayInput.className = "flex items-center space-x-2"
+                            dayInput.innerHTML = `
+                            <label for="day-${i}-groups" class="text-sm font-medium text-gray-700 w-24">Day ${i}:</label>
+                            <input type="text" id="day-${i}-groups" placeholder="e.g., A B C D" class="custom-group-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" required>
+                        `
+                            customGroupsContainer.appendChild(dayInput)
+                        }
+                    } else {
+                        customScheduleInput.classList.add("hidden")
+                    }
+                })
+
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault()
+                    runScheduler()
+                })
+
+                rerollBtn.addEventListener("click", () => {
+                    if (lastScheduleParams.allGroups) {
+                        // To re-roll, we need a new builder instance to reset its internal state
+                        const {
+                            startDate,
+                            dayCycle,
+                            daysOff,
+                            weeks,
+                            customSchedule,
+                            allGroups,
+                        } = lastScheduleParams
+                        const scheduleBuilder = new ScheduleBuilder(
+                            startDate,
+                            dayCycle,
+                            daysOff,
+                            weeks,
+                            customSchedule,
+                            allGroups
+                        )
+                        const schedule = scheduleBuilder.buildSchedule()
+                        displaySchedule(schedule)
+                    }
+                })
+
+                saveCsvBtn.addEventListener("click", () => {
+                    exportTableToCSV("musical-lesson-schedule.csv")
+                })
+
+                function runScheduler() {
+                    document
+                        .getElementById("loading-indicator")
+                        .classList.remove("hidden")
+                    document
+                        .getElementById("schedule-output")
+                        .classList.add("hidden")
+                    generateBtn.disabled = true
+
+                    // Simulate processing time to show loader
+                    setTimeout(() => {
+                        try {
+                            const params = getScheduleParameters()
+                            if (!params) return // Validation failed
+                            lastScheduleParams = params
+
+                            const {
+                                startDate,
+                                dayCycle,
+                                daysOff,
+                                weeks,
+                                customSchedule,
+                                allGroups,
+                            } = params
+                            const scheduleBuilder = new ScheduleBuilder(
+                                startDate,
+                                dayCycle,
+                                daysOff,
+                                weeks,
+                                customSchedule,
+                                allGroups
+                            )
+                            const schedule = scheduleBuilder.buildSchedule()
+                            displaySchedule(schedule)
+                        } catch (error) {
+                            console.error("Error generating schedule:", error)
+                            alert(
+                                "An error occurred. Please check your inputs and try again."
+                            )
+                        } finally {
+                            document
+                                .getElementById("loading-indicator")
+                                .classList.add("hidden")
+                            document
+                                .getElementById("schedule-output")
+                                .classList.remove("hidden")
+                            generateBtn.disabled = false
+                        }
+                    }, 500)
+                }
+
+                function getScheduleParameters() {
+                    const startDate =
+                        document.getElementById("start-date").value
+                    const dayCycle = parseInt(
+                        document.getElementById("day-cycle").value,
+                        10
+                    )
+                    const weeks = parseInt(
+                        document.getElementById("weeks").value,
+                        10
+                    )
+                    const customSchedule =
+                        document.getElementById("custom-schedule").checked
+
+                    const daysOffInputs =
+                        document.querySelectorAll(".day-off-input")
+                    const daysOff = Array.from(daysOffInputs)
+                        .map((input) => input.value)
+                        .filter(Boolean)
+
+                    if (!startDate || isNaN(dayCycle) || isNaN(weeks)) {
+                        alert(
+                            "Please fill in all required fields: Start Date, Day Cycle, and Weeks."
+                        )
+                        return null
+                    }
+                    if (dayCycle < 1 || dayCycle > 2) {
+                        alert("Day cycle must be 1 or 2.")
+                        return null
+                    }
+                    if (weeks < 1 || weeks > 52) {
+                        alert("Number of weeks must be between 1 and 52.")
+                        return null
+                    }
+
+                    let allGroups
+                    if (customSchedule) {
+                        allGroups = []
+                        const customGroupInputs = document.querySelectorAll(
+                            ".custom-group-input"
+                        )
+                        let isValid = true
+                        customGroupInputs.forEach((input) => {
+                            const groups = input.value.trim().split(/\s+/)
+                            if (groups.length !== 4 || groups.includes("")) {
+                                isValid = false
+                            }
+                            allGroups.push(groups)
+                        })
+                        if (!isValid) {
+                            alert(
+                                "Each day in the custom schedule must have exactly 4 groups separated by spaces."
+                            )
+                            return null
+                        }
+                    } else {
+                        allGroups = initializeGroups()
+                    }
+
+                    return {
+                        startDate,
+                        dayCycle,
+                        daysOff,
+                        weeks,
+                        customSchedule,
+                        allGroups,
+                    }
+                }
+
+                function initializeGroups() {
+                    const groups = []
+                    let groupName = "A".charCodeAt(0)
+                    for (let i = 0; i < 5; i++) {
+                        const group = []
+                        for (let j = 0; j < 4; j++) {
+                            group.push(String.fromCharCode(groupName++))
+                        }
+                        groups.push(group)
+                    }
+                    return groups
+                }
+
+                function displaySchedule(schedule) {
+                    const tableBody = document.querySelector(
+                        "#schedule-table tbody"
+                    )
+                    tableBody.innerHTML = ""
+
+                    let counter = -1
+                    const noteRow = document.createElement("tr")
+                    noteRow.className = "bg-yellow-50"
+                    noteRow.innerHTML = `<td colspan="9" class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 italic"><strong>Note:</strong> Pd 1 swaps with Pd 6, and Pd 3 swaps with Pd 8 between Day 1 and Day 2 cycles.</td>`
+                    tableBody.appendChild(noteRow)
+
+                    schedule.forEach((entry) => {
+                        counter++
+                        if (counter > 0 && counter % 5 === 0) {
+                            const spacerRow = document.createElement("tr")
+                            spacerRow.className = "bg-gray-200"
+                            spacerRow.innerHTML = `<td colspan="9" class="py-2"></td>`
+                            tableBody.appendChild(spacerRow)
+                        }
+
+                        const row = document.createElement("tr")
+                        const formattedDate = entry.date.toLocaleDateString(
+                            undefined,
+                            {
+                                weekday: "short",
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                            }
+                        )
+
+                        row.innerHTML = `
+                        <td class="px-2 py-3 whitespace-nowrap text-sm font-medium text-gray-900">${formattedDate}</td>
+                        <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">${entry.getPeriod1()}</td>
+                        <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">${entry.getGroup1()}</td>
+                        <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">${entry.getPeriod2()}</td>
+                        <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">${entry.getGroup2()}</td>
+                        <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">${entry.getPeriod3()}</td>
+                        <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">${entry.getGroup3()}</td>
+                        <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">${entry.getPeriod4()}</td>
+                        <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">${entry.getGroup4()}</td>
+                    `
+                        tableBody.appendChild(row)
+                    })
+                }
+
+                function exportTableToCSV(filename) {
+                    const csv = []
+                    const rows = document.querySelectorAll("#schedule-table tr")
+
+                    for (const row of rows) {
+                        const cols = row.querySelectorAll("td, th")
+                        const rowData = []
+                        for (const col of cols) {
+                            // Replace comma with a space to prevent CSV format breaking
+                            rowData.push(
+                                '"' + col.innerText.replace(/"/g, '""') + '"'
+                            )
+                        }
+                        csv.push(rowData.join(","))
+                    }
+
+                    downloadCSV(csv.join("\n"), filename)
+                }
+
+                function downloadCSV(csv, filename) {
+                    const csvFile = new Blob([csv], { type: "text/csv" })
+                    const downloadLink = document.createElement("a")
+                    downloadLink.download = filename
+                    downloadLink.href = window.URL.createObjectURL(csvFile)
+                    downloadLink.style.display = "none"
+                    document.body.appendChild(downloadLink)
+                    downloadLink.click()
+                    document.body.removeChild(downloadLink)
+                }
+            })
+        </script>
+    </body>
+</html>
